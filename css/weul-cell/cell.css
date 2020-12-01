@@ -1,0 +1,7 @@
+.cell {
+  border-top: 1px solid #008000;
+  border-right: 1px solid #008000;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+}

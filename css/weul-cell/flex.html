@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cc-news{
+            width: 100%;
+            height: 200px;
+        
+        }
+        .cc-news_item{
+            width: 25%; 
+            /* flex:1; */
+            /* 行内元素是不能设置宽高的 */
+            display: inline-block;
+            background-color: red;
+            height: 100%;
+        }
+        .cc-news_item:nth-child(odd){
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="cc-news">
+        <div class="cc-news_item"></div><div class="cc-news_item"></div><div class="cc-news_item"></div><div class="cc-news_item"></div>
+    </div>
+</body>
+</html>

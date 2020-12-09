@@ -39,9 +39,9 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.14.0",
+  "libVersion": "2.14.1",
   "appid": "wxdfefe269b9aa5117",
-  "projectname": "Bicycle",
+  "projectname": "danche",
   "debugOptions": {
     "hidedInDevtools": []
   },

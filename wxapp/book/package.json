@@ -1,0 +1,15 @@
+{
+  "name": "book",
+  "version": "1.0.0",
+  "description": "上次课 vant 前端框架 + 工厂API   - 云开发 来了   云端直接提供数据存储的，直接有个数据库， 不用安装 来了。   vant 负责界面   数据操作的校程序 云端的mangodb 数据库， 是可视化的。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.6.4"
+  }
+}

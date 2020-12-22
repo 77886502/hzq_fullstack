@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "vant-card":"@vant/weapp/card/index"
+  }
+}

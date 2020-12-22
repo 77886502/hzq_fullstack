@@ -1,0 +1,6 @@
+<!--miniprogram/pages/phoneDetail/phoneDetail.wxml-->
+<text>{{phone.title}}</text>
+<text>{{phone.price}}</text>
+<text>{{phone.color}}</text>
+<image src="{{phone.image}}"/>
+

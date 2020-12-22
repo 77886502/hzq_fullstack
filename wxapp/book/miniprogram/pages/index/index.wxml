@@ -1,0 +1,10 @@
+<!-- 手机产品数据已经到了前端 -->
+<view  wx:for="{{phone_list}}" wx:for-item="phone"  >
+  <vant-card
+   thumb="{{phone.image}}"
+   price="{{phone.price}}"
+   title="{{phone.title}}"
+  data-id="{{phone._id}}"
+  bind:cilck="viewItem">
+  </vant-card>
+</view>

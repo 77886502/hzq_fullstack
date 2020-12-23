@@ -11,3 +11,9 @@
   2. 页面上如何显示好看一些？
   3. 
   4. 
+
+- block 承载指令
+- wx:for wx:key 优化
+- 尊重用户隐私 
+  用户头像、昵称... 得到用户的认可
+  open-type="getUserInfo"

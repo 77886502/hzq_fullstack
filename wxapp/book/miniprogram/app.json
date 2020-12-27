@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/goshoping/goshopping",
     "pages/my/my",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -16,6 +17,7 @@
     "pages/phoneDetail/phoneDetail",
     "pages/add/add",
     "pages/index/index"
+   
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

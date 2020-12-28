@@ -1,7 +1,7 @@
 function Cat(name,color){
     // new 的时候一定会执行Cat
     this.name = name; // this? 指向它实例
-    this,color = color; //
+    this.color = color; //
     this.type = '猫科动物';
     // prototype 要生成的原因
 }

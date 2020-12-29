@@ -1,4 +1,6 @@
 // 云函数入口文件
+const WXAPI = require('apifm-wxapi')
+const AUTH = require('../../utils/auth')
 const cloud = require('wx-server-sdk')
 // 初始化这朵云
 cloud.init()

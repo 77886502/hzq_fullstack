@@ -1,4 +1,4 @@
-// pages/good/list.js
+// pages/good/detail.js
 Page({
 
   /**

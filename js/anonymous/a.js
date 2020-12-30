@@ -9,7 +9,6 @@ class Book {
             ISBN号:${this.isbn}
             Title:${this.title}
             Author:${this.author}
-
         `
     }
 }

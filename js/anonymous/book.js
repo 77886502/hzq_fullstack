@@ -5,5 +5,4 @@ function Book(isbn, title, author){
 }
 let theHabbit = new Book('0-395-07122-4',"theHabbit","J.R.R. Tolkien");
 // console.log(theHabbit.__proto__===Book.prototype);
-console.log(Book.prototype);
-console.log(theHabbit.__proto__);
+console.log(theHabbit.__proto__.__proto__.constructor===Object);

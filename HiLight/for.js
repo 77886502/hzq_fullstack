@@ -3,9 +3,14 @@ const Mary = {
     sex: "women",
     data: "2020-1-4"
 }
-var txt = " ";
-for(date in Mary)
+const num = [1,2,3,4,5,6,7];
+for(key in num)
 {
-    txt=txt+" "+date;
+    console.log(key,num[key]);
 }
-console.log(txt);
+// var txt = " ";
+// for(date in Mary)
+// {
+//     txt=txt+" "+date;
+// }
+// console.log(txt);

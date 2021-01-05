@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+     <style>
+            .circle {
+                position: relative;
+                box-sizing: border-box;
+            }
+            
+            .big {
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                position: absolute;
+                margin: auto;
+                /*以下五个属性为水平垂直居中的方法*/
+                left: 0;
+                top: 200px;
+                right: 0;
+                bottom: 0;
+                box-sizing: border-box;
+            }
+            
+            .small {
+                width: 136px;
+                height: 136px;
+                border: 10px solid #9DDBE8;
+                border-radius: 50%;
+                position: absolute;
+                margin: auto;
+                /*以下五个属性为水平垂直居中的方法*/
+                left: 0;
+                top: 200px;
+                right: 0;
+                bottom: 0;
+                box-sizing: border-box;
+                border-bottom-color: transparent;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="circle">
+            <div class="big"></div>
+            <div class="small"></div>
+        </div>
+    </body>
+</html>

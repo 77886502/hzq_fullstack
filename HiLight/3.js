@@ -7,4 +7,4 @@ var ob = {
     "":""
 
 };
-console.log(typeof ob);
+console.log(7%10);

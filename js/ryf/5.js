@@ -1,6 +1,7 @@
 function Cat(name,color){
     this.name = name; // this? 指向它实例
     this,color = color; //
+    // 内存
 }
 //实例化
 var cat1 = new Cat("大毛","黄色");

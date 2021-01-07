@@ -15,3 +15,13 @@
         Object 是谁？所有对象的原型对象？ 这种机制怎么构建起来？
         prototype 啥玩意 
         call 借 
+    
+    - call apply 借用方法 fn.call(绑定this,参数1,参数2,.....)
+        fn.apply(绑定this,[参数1,参数2,......])
+    ## 继承的几总方式
+    1.构造函数绑定
+    2.prototype模式
+    3.直接继承prototype
+    4.利用空对象作为中介
+
+    2和3相比,3的效率高(不用执行和建立Animal的实例),缺点是Cat.prototype和Animal.prototype都指向同一个原型对象,在理解上有点不妥会改变父亲的原型对象

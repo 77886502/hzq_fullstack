@@ -1,25 +1,56 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid",
-    "pages/im/im",
-    "pages/im/room/room"
+    "pages/divide/divide",
+    "pages/lanuch/lanuch",
+    "pages/message/message",
+    "pages/userCenter/userCenter"
+    
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "black"
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#5397ff",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/selectedhome.png"
+      },
+      {
+        "pagePath": "pages/divide/divide",
+        "text": "分类",
+        "iconPath": "images/icons/fenlei.png",
+        "selectedIconPath": "images/icons/selectedfenlei.png"
+      },
+      {
+        "pagePath": "pages/lanuch/lanuch",
+        "text": "发布",
+        "iconPath": "images/icons/selectedfabu.png",
+        "selectedIconPath": "images/icons/selectedfabu.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "images/icons/message.png",
+        "selectedIconPath": "images/icons/selectedmessage.png"
+      },
+      {
+        "pagePath": "pages/userCenter/userCenter",
+        "text": "我的",
+        "iconPath": "images/icons/lianxiren.png",
+        "selectedIconPath": "images/icons/selectedlianxiren.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

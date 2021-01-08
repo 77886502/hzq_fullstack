@@ -1,0 +1,9 @@
+.bg-img{
+    background-image:url(https://s2.ax1x.com/2019/05/20/EvhHKI.png) ;
+}
+.mt200 {
+    margin-top: 200rpx;
+}
+.mt200 image {
+    width: 20%;
+}

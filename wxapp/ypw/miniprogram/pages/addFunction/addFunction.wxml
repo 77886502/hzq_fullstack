@@ -1,0 +1,26 @@
+<!--pages/addFunction/addFunction.wxml-->
+<view class="container">
+
+  <view class="list">
+    <view class="list-item" bindtap="testFunction">
+      <text>测试云函数</text>
+    </view>
+    <view class="list-item">
+      <text class="request-text">期望输出：{"sum":3}</text>
+    </view>
+    <view class="list-item" wx:if="{{result}}">
+      <text class="request-text">调用结果：{{result}}</text>
+    </view>
+  </view>
+
+  <view class="guide">
+    <text class="headline">新增云函数</text>
+    <text class="p">1. 在 cloudbase/all/functions/sum 目录已写好云函数代码</text>
+    <text class="p">2. 在目录上右键选择在相应环境新建云函数</text>
+    <text class="p">3. 点击测试云函数测试</text>
+    <text class="p">4. 打开云开发云函数管理页，选择 sum 云函数</text>
+    <text class="p">5. 查看 sum 的调用日志</text>
+    <text class="p">进阶：可在云函数中使用 wx-server-sdk 操作数据库，文件存储和调用其他云函数，详见文档</text>
+  </view>
+
+</view>

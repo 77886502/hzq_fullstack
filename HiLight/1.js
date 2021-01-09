@@ -1,27 +1,18 @@
-// codewars
-function narcissistic(value) {
-    if(value <= 10)
-      return true;
-    var number = new Array();
-    var sum = 0;
-    var target = value;
-    var i=0;
-    while(target!=0)
-    {
-        number[i]=target%10;
-        target=Math.floor(target/=10);
-        i++;
-    }
-    for(let i=0; i<number.length;i++)
-    {   
-       
-       sum=sum+Math.pow(number[i],number.length);
-    }
-    console.log(sum);
-    if(sum == value)
-      return true;
-    else
-      return false;
+function towerBuilder(nFloors) {
+  var tower = new Array();
+  var  str1="*";
+  var  str0="";
+  var j=nFloors-1;
+  for(let i=1;i<nFloors;i++)
+  {
+    str1=str1+"**"
+  }
+  for(let i=nFloors-1; i>=0; i--)
+  {
+    tower[i]=str0+str1+str0;
+    str1=str1.slice(2);
+    str0=str0+" ";
+  }
+  return tower;
 }
-
-console.log(narcissistic(371));
+console.log(towerBuilder(2));

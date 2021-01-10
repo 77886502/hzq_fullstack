@@ -1,7 +1,7 @@
-var str="*************"
-console.log(str);
-for(let i=1;i<=4;i++)
-{
-    str=str.slice(3);
-    console.log(str+"\n");
-}
+var str1="4of Fo1r pe6ople g3ood th5e the2";
+str1 = str1.split(" ");
+var str0 = str1[0];
+var str=/[1-9]/;
+var str2 = "";
+console.log(str0.match(str)[0]);
+console.log(str2.length);

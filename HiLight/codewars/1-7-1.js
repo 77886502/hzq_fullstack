@@ -2,7 +2,7 @@
 // https://www.codewars.com/kata/552c028c030765286c00007d/train/javascript
 // 找出一堆数字中 一个偶数 或 一个奇数
 function iqTest(numbers){
-    var odd=0,even=0,x=null,y=null;
+    var odd=0,even=0,x=null,y=null; 
     numbers = numbers.split(" ");
     for(let i=0; i<3; i++)
     {

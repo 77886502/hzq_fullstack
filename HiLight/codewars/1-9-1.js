@@ -1,6 +1,7 @@
 // Complementary DNA
 // https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/javascript
-// 字符串 ---> 数组   数组 ---> 字符串
+// 字符串 ---> 数组 str=str.split("xx")
+// 数组 ---> 字符串 Array=Array.join(""); 
 function DNAStrand(dna){
     dna=dna.split("");
     var str =new Array;

@@ -1,0 +1,21 @@
+<script>
+    // 滚动条滚动到底,就让button勾选 没有这个事件
+    const terms = document.querySelector('.terms-and-conditions');
+    const watch = document.querySelector('.watch');
+    const button = document.querySelector('.accept');
+    // button.removeAttribute('disabled');
+    // 给我们监听视窗能力 某个元素是否在视窗中 Observer
+    // 实例化了一个oberver  
+    function obCallback(payload){
+        console.log(payload);
+        // if(payload[0])
+        // 
+    }
+    const ob = new IntersectionObserver(obCallback,{
+        root:terms,
+        // 什么时候触发回调函数 0 从视窗消失 1进入视窗
+
+        threshold: 0.5
+    }); 
+    ob.observe(terms.lastElementChild);
+</script>

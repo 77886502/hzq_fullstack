@@ -1,5 +1,12 @@
-console.log('1.'+(false=='false'));
-console.log('2.'+(false==undefined));
-console.log('3.'+(false==null));
-console.log('4.'+(null==undefined));
-console.log('5.'+(0==''));
+// The Supermarket Queue
+// https://www.codewars.com/kata/57b06f90e298a7b53d000a86/train/javascript
+function queueTime(customers, n) {
+  var time=0;
+  for(let i=0; i<customers.length; i++)
+  { 
+    if(num[0])
+
+  }
+  return time;
+}
+console.log(queueTime([],1));

@@ -1,0 +1,16 @@
+{
+  "name": "fetch_data",
+  "version": "1.0.0",
+  "description": "单线程语言，数据通信相关\r 1. promise 五星",
+  "main": "index.js",
+  "scripts": {
+  
+    "server:json":"json-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}

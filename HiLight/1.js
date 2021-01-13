@@ -1,12 +1,4 @@
-// The Supermarket Queue
-// https://www.codewars.com/kata/57b06f90e298a7b53d000a86/train/javascript
-function queueTime(customers, n) {
-  var time=0;
-  for(let i=0; i<customers.length; i++)
-  { 
-    if(num[0])
-
-  }
-  return time;
+function cakes(recipe, available) {
+  console.log(recipe);
 }
-console.log(queueTime([],1));
+console.log(cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200}));

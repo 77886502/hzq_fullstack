@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText":"廖主任家的水果店",
+  "usingComponents": {
+    "my-search":"/components/search/search",
+    "index-swiper": "/components/swiper/swiper"
+  }
 }

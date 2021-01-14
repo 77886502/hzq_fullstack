@@ -2,7 +2,9 @@
   "pages": [
     "pages/homepage/homepage",
     "pages/cart/cart",
-    "pages/me/me"
+    "pages/me/me",
+    "components/search/search",
+    "components/swiper/swiper"
   ],
   "window": {
     "backgroundColor": "#F0F0F0",

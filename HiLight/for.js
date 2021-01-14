@@ -1,7 +1,6 @@
-var str="climbing";
-var num =0;
-for(let i=0; i<str.length; i++)
-{
-  num = num + str.charCodeAt(i)-96;
-}
-console.log(num);
+var str = "abcdefgZ"
+var str2 = /^[a-zA-Z]+$/
+console.log(str2.test(str));
+//  38579490597 0540 ->  38579490597 4005
+//   935669 06444 -> 935669 40446
+// 28678 69522 -> 28678 92256

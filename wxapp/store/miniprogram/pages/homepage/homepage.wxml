@@ -1,0 +1,3 @@
+<view class="offline" wx:if="{{offline}}">
+    打烊了
+</view>

@@ -1,12 +1,14 @@
-function pigIt(str){
-    str = str.split(" ");
-    var str1 = /^[a-zA-Z]+$/
-    for(var i=0;i<str.length-1;i++)
-    { 
-        str[i] = str[i].slice(1)+str[i].slice(0,1)+"ay";
-    }
-    if(str1.test(str[i]))
-      str[i] = str[i].slice(1)+str[i].slice(0,1)+"ay";
-    return  str.join(" ");
-  
+//Double Cola
+function whoIsNext(names, r){
+  if(names.length>=r)
+    return names[r-1];
+  var n = names.length,i=1;
+  while(r>n)
+  {
+    i++;
+    n = names.length*(Math.pow(2,i)-1);
   }
+  return names[names.length-Math.ceil((n-r+1)/Math.pow(2,i-1))];
+}
+let names = ["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"];
+console.log(whoIsNext(names,100));

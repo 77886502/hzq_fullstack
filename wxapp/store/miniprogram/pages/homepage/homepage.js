@@ -30,13 +30,86 @@ Page({
       }
     ]
   },
+  // 加入购物车
+  addCartByHome(e) {
+    const id = e.currentTarget.dataset.fid;
+    // console.log(id);
+    // 1. 去app.js carts 有没有? 
+    // 2. 加入购物车或数量加一
+    let newItem = {}
+    // 全局的云数据库操作 where 
+    // 传统后端  全局的CRUD 
+    app.getInfoWhere('fruit-board', {_id: id}, e => {
+      // console.log(e)
+      let newCartItem = e.data[0];
+      newCartItem.num = 1;
+      app.isNotRepeteToCart(newCartItem)
+      wx.showToast({
+        title: '已添加至购物车'
+      })
+      
+    })
+
+
+  },
+  // 去详情页 
+  tapToDetail(e) {
+    console.log('+++++');
+    const id = e.currentTarget.dataset.fid;
+    console.log(id);
+    wx.navigateTo({
+      url: '/pages/detail/detail?_id='+id,
+    })
+  },
   typeSwitch(e) {
     this.setData({
       activeTypeId: e.currentTarget.dataset.id
     })
-  },
-  tapToDetail(e) {
-    const _id = e.currentTarget.dataset.fID;
+    // 重新走数据库， 刷新列表
+    wx.showLoading({
+      title: '数据加载中...'
+    });
+    console.log(e.currentTarget.dataset.id)
+    switch(e.currentTarget.dataset.id) {
+      case 0:
+        app.getInfoByOrder('fruit-board', 'time', 'desc', e => {
+          this.setData({
+            fruitInfo: e.data
+          })
+          wx.hideLoading();
+        })
+        break;
+      // 今日特惠
+      case 1:
+        app.getInfoWhere('fruit-board', {myClass:'1'}, e => {
+          this.setData({
+            fruitInfo: e.data
+          })
+        })
+        wx.hideLoading();
+        break;  
+      //新鲜上架
+      case 2:
+        app
+          .getInfoByOrder('fruit-board', 'time', 'desc', e => {
+            this.setData({
+              fruitInfo: e.data
+            })
+
+          })
+          wx.hideLoading();
+        break;
+      // 店主推荐
+      case 3:
+        app.getInfoWhere('fruit-board', { recommend: '1'}, e => {
+          this.setData({
+            fruitInfo: e.data
+          })
+        })
+        wx.hideLoading();
+        break;
+      
+    }
 
   },
 

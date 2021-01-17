@@ -24,8 +24,8 @@
   </view>
   <view class="fruit-container">
     <block wx:for="{{fruitInfo}}" wx:key="fruitId">
-      <view class="fruit-item" bindTap="tapToDetail"
-      data-fID="{{item._id}}" wx:if="{{item.onShow}}">
+      <view class="fruit-item" bindtap="tapToDetail"
+      data-fid="{{item._id}}" wx:if="{{item.onShow}}">
         <view class="fruit-image">
           <image src="{{item.imgUrl}}" mode="aspectFill"/>
         </view>
@@ -39,7 +39,7 @@
               <text class="unit">{{item.unit}}</text>
             </view>
             <image src="../../images/icon/cart4.png" mode="aspectFit" 
-            catchtap="addCartByHome" data-_id="{{item._id}}" />
+            catchtap="addCartByHome" data-fid="{{item._id}}" />
           </view>
         </view>
       </view>

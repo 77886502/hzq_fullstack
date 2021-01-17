@@ -32,3 +32,11 @@ shop <- 水果
     com
 
 - flex 里怎么让元素下去
+    flex-warp: warp
+- 设计一下购物车？ 数组 某项商品 数量
+    首页 要加入购物车 加入 | 改数量
+    购物车 展示出来
+    详情页时，加入购物
+    关于购物车的数据,是不是要超出页面化, 来到？
+    比页面级别更大的是谁？ App
+    view|image 标签 -> component -> page -> application

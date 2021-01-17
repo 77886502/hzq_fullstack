@@ -1,10 +1,13 @@
 {
   "pages": [
+   
     "pages/homepage/homepage",
     "pages/cart/cart",
     "pages/me/me",
     "components/search/search",
-    "components/swiper/swiper"
+    "components/swiper/swiper",
+    "pages/detail/detail"
+    
   ],
   "window": {
     "backgroundColor": "#F0F0F0",

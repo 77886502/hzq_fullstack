@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- <script src="1.js"></script>-->
+    <script>
+        // 对象 this， 内存挂钩 指针
+    var a = 1; // 内存 内存中开辟空间 number &a  1
+    var obj = { // 内存中开辟的空间比较大  -> map空间 字典查
+        foo: 5,
+        // 特别处理了
+        //neic， 把我们代码，I/O    通过文件系统读取到内存，
+        // 内存会有个地址执行 
+        // func() 函数中，重新分配一个执行空间，进入执行栈
+        // 创建一个作用域 scope 变量的查找链 this 
+
+        func: function(){
+            console.log(this.foo);
+        }
+    }
+    var foo = 6;
+    var func = obj.func;
+    obj.func();
+    obj.foo // 从.运算 对象属性查找 -> 对于地址的不断查找
+    </script>
+</body>
+</html>

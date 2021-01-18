@@ -1,6 +1,7 @@
+// Pyramid Slide Down
 function longestSlideDown (pyramid) {
     var max = pyramid[0][0];
-   for(var i=1;i<pyramid.length;i++)
+    for(var i=1;i<pyramid.length;i++)
    {
      for(let j=0;j<pyramid[i].length;j++)
      {
@@ -16,9 +17,9 @@ function longestSlideDown (pyramid) {
        {
          pyramid[i][j] = Math.max(pyramid[i-1][j-1]+pyramid[i][j],pyramid[i-1][j]+pyramid[i][j]);
        }
-       if(max<pyramid[i][j])
-         max = pyramid[i][j];
+       if(pyramid.length-1==i)
+       max = Math.max(max,pyramid[i][j]);
      }
    }
    return max;
- }
+  }

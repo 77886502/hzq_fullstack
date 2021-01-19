@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+      //js 单线程 idle
+      // fs I/O 内存，块， 硬盘 慢 ajax
+        console.log('event-loop'); // 1
+        //setTimeout() => {} 挂起
+        setTimeout(() => {      // event-loop event-task 任务队列 -> 属于主线程 队列结构 
+            //事件信息，当主线程停下来了后，轮询event-loop  task-queue
+            console.log('setTimeout1'); // 2
+            Promise.resolve().then(data =>{//promise
+                console.log(222);
+            })
+        }, 0)
+        setTimeout(() => {// 宏任务
+            console.log('setTimeout2')
+        },0)
+        Promise.resolve().then(data => {//promise -> 微任务
+            console.log(111);
+        })
+        console.log('event-loop end'); //3
+  </script>
+</body>
+</html>

@@ -1,5 +1,4 @@
 //Double Cola
-
 function whoIsNext(names, r){
     if(names.length>=r)
       return names[r-1];

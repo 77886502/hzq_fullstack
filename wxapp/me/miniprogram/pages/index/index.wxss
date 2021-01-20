@@ -1,0 +1,17 @@
+
+.header {
+    width: 100%;
+    height: 100rpx;
+    background-color: pink !important;
+    display: flex;
+    box-sizing: border-box;
+}
+.search {
+    width: 75%;
+    height: 60rpx;
+    margin: 20rpx auto;
+    background-color: #fff;
+    border-radius: 25rpx;
+
+    
+}

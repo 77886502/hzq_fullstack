@@ -1,8 +1,4 @@
-// 2^n: 1 2 4 8...
-// 3^n: 3 9 27...
-// 5^n: 5 25 125... 
-// %2 %3 %5
-
-function hamming (n) {
-  
-}
+function removeZeros(array) {
+    
+    return array;
+  }

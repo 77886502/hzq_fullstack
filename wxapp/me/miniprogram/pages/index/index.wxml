@@ -1,0 +1,3 @@
+<view class="header"> 
+  <input type="text" class="search" placeholder="请输入您要搜索的商品"></input>
+</view>

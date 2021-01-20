@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@vant/weapp": "^1.6.5",
     "baidu-aip-sdk": "^2.4.6"
   }
 }

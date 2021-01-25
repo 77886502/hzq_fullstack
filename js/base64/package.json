@@ -1,0 +1,15 @@
+{
+  "name": "base64",
+  "version": "1.0.0",
+  "description": "- 图片性能优化，我们想到什么？ 减少了http数 lazyload throttle\r   浏览器的编解码技术\r   data:img/jpg;base64,文件头base64的编码格式 /9j/文件内容",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webp-converter": "^2.3.1"
+  }
+}

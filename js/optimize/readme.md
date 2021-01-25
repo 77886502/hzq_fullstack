@@ -29,5 +29,9 @@
       DOM树 + css 渲染树 1. 快速的把静态页面显示出来
       js 
       doucument.getElementById('') 巨大的开始
-      js(语言世界) -> html + css DOM 属世界
+      js(语言世界) -> html + css DOM 树世界
+
+    
+
+    3. 分屏加载html 制高点
       

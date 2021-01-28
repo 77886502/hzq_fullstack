@@ -26,7 +26,7 @@
 
 这是京东网站首页里面采用的精灵图(在特色优选这一区域)
 
-
+![]()
 ![](https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/tit_arrow/sprite@2x.png)
 
 精灵图的使用：将精灵图设为一个大背景，然后通过background-position来移动背景图，从而显示出我们想要显示出来的部分。 精灵图的展示预览效果代码:

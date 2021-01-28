@@ -1,0 +1,5 @@
+/* miniprogram/pages/user/user.wxss */
+.avatar {
+    width: 75rpx;
+    height: 75rpx;
+}

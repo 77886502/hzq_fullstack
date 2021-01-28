@@ -16,16 +16,12 @@
   .img {
     width: 500px;
     height: 500px;
+    
   }
 
   </style>
 </head>
 <body>
-  <!-- 展示图片为主， src  http 下载线程 img  data-src 里真正的图片地址
-  防止页面打开速度太慢 http 5个并发数  img 独立的打开一个http通道  n>10  
-   减少并发数 网页打开速度的做法 
-    静态资源 第一次请求， 后一次请求 缓存的 
-  -->
   <div class="container">
     <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_7d557e30f1254bdc8597f5eccdeb8e29_img_png?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center" alt="加载中" class="pic"></div>
     <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_8327e6797c2745f99e8ecc6bae1958b4_img_png" alt="加载中" class="pic"></div>

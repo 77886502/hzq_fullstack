@@ -1,0 +1,12 @@
+<van-search
+  value="{{ value }}"
+  shape="round"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  bind:search="Search"
+>
+ <view class="sbtn" slot="action" bind:tap="Search">搜索</view>
+</van-search> 
+<van-transition show="{{ show }}" custom-class="block">
+<van-loading size="24px" vertical>加载中...</van-loading>
+</van-transition>

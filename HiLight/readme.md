@@ -1,143 +1,68 @@
-- 每当提及JS原型链时，大多初学者都对其谈虎色变，唯恐避之不及。今天我就来为大家解除对JS原型链的疑惑。  
+# 导读
+生活中我们经常会浏览众多网页，而其中有些网页需要向用户展示大量的图片，这些网页为了加载大量的图片需要大量的性能开销，以至于可能出现图片加载卡顿甚至整个网页加载迟缓等现象。这些极差的体验会极大地影响用户的粘性，从而造成相当程度的损失。因此图片优化势在必行！！！
 
-## 前言
-在开始解析原型链之前你需要细致地了解以下知识点
-1. 什么是构造函数
-- 简单地来说，构造函数都是需要用new关键字来调用，构造函数内部用this来构造属性和方法。构造函数常常用来工厂化生产一堆具有相似属性和方法的对象。(构造函数名的规范要求首字母大写)
-```javascript
-// Cat()就是一个构造函数
-var Cat = function (name,color) {
-    this.name = name;
-    this.color = color;
-    this.category = "猫科";
-}
-var cat = new Cat("喵喵","米色");
+
+# 图片优化
+首先我们要分析为何网页加载图片的过程中如此消耗性能呢？原来网页加载图片需要先通过http请求将图片下载到本地然后才能显示出来，同时本地会保留本次浏览的缓存，以便下次访问。（这就是你为什么打开经常访问网站如此迅速的原因）
+
+网页上展示的图片多相应的http的请求也会越多，而且图片越大http请求的时间也会越长。短时间内大量的http请求和http请求时间过长，页面可能会直接无法响应！！！ 
+
+所以我们可以从以下几个方面出发：
+## 减少短时间内加载图片的数量(本质是减少短时间内的http请求数)
+1. 懒加载(lazyLoad)
+>顾名思义，就是偷懒加载。偷懒的好处在于，网页不会因为一下子http请求过多，而被卡死了。而且用户在浏览页面时也不可能一下子就浏览到所有的图片。有些未预览的图片还在视窗下面的时候，我们可以选择在图片即将进入用户视窗时，进行加载。
+
+图片懒加载的实现参考代码:
+```html
+
 ```
 
-2. 什么是实例
-- 实例可以理解为通过构造函数生成的一个对象
-```javascript
-var Cat = function (name,color) {
-    this.name = name;
-    this.color = color;
-    this.category = "猫科";
+
+## 减小加载图片的大小
+1. 精灵图(sprite)
     
-}
-// cat 就是构造函数Cat()实例化出来的一个对象
-var cat = new Cat("喵喵","米色");
-```
-3. 什么是原型对象
-- 构造函数都有个隐式的prototype属性，这个属性指向构造函数的原型对象，而每个对象都有个隐式__proto__属性，这个属性指向构造该对象的构造函数的原型对象。**原型对象包含应该由特定引用类型的实例共享的属性和方法。使用原型对象的好处是，在它上面定义的属性和方法可以被实例共享。（所以实例对象也可以调用原型对象上的constructor属性用来找构造实例的构造函数）**
-```javascript
-var Cat = function (name,color) {
-    this.name = name;
-    this.color = color;
-    this.category = "猫科";
-}
-var cat = new Cat("喵喵","米色");
-// 实例对象也可以调用原型对象上的constructor属性用来找构造实例的构造函数
-console.log(Foo.prototype.constructor === f1.constructor); //true
-// cat.__proto__,Cat.protype 都指向相同的原型对象
-console.log(cat.__proto__===Cat.prototype); //true
-```
-4. __proto__属性，prototype属性,constructor属性
-- __proto__属性是任何对象都有的属性指向构造该对象的构造函数的原型对象。prototype属性是函数才有的属性，prototype是通过调用构造函数而创建的那个对象实例的原型对象。原型对象上默认有一个属性constructor，将原型对象指向其相关联的构造函数。
+> 精灵图又称雪碧图，很多大型网页在首次加载的时候都需要加载很多的小图片，而考虑到在同一时间，服务器拥堵的情况下，为了解决这一问题，采用了精灵图这一技术来缓解加载时间过长从而影响用户体验的这个问题。所谓精灵图就是把很多的小图片合并到一张较大的图片里，所以在首次加载页面的时候，就不用加载过多的小图片，只需要加载出来将小图片合并起来的那一张大图片也就是精灵图即可，这样在一定程度上加快了页面的加载速度，也一定程度上缓解了服务器的压力。 
 
-5. 什么是JS原型链？
--  每个构造函数都有一个原型对象，构造函数的protype属性指向这个构造函数的原型对象，而这个构造函数实例化出的实例对象的__proto__属性能够指向这个原型对象。因为原型对象也是一个对象，所以说原型对象相应的也有一个相应的构造函数和原型对象。因而这种一环紧扣下一环直至顶层对象Object的原型对象结束的链条称为原型链。
-```javascript
-var Cat = function (name,color) {
-    this.name = name;
-    this.color = color;
-    this.category = "猫科";
-}
-// cat 就是构造函数Cat()实例化出来的一个对象
-var cat = new Cat("喵喵","米色");
-// 原型对象也是对象
-console.log(Object.prototype.toString.call(cat.__proto__));//[object Object]
-// Cat的原型对象的原型对象 和 Object的原型对象相同
-console.log(Cat().prototype.__proto__==Object.prototype); //true
-// Object的原型对象已经到顶了，在往上就是NULL
-console.log(Object.prototype.__proto__); // null
+
+这是京东网站首页里面采用的精灵图(在特色优选这一区域)
+
+
+![](https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/tit_arrow/sprite@2x.png)
+
+精灵图的使用：将精灵图设为一个大背景，然后通过background-position来移动背景图，从而显示出我们想要显示出来的部分。 精灵图的展示预览效果代码:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精灵图</title>
+    <style>
+        .sp{
+            width: 32px;
+            height: 32px;
+            background-color:	#D3D3D3;
+            background-image: url('https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/tit_arrow/sprite@2x.png');
+        }
+    </style>
+</head>
+<body>
+   <div class="sp" style=" background-position:0 0;"></div>
+   <div class="sp" style=" background-position:0 32px;"></div>
+   <div class="sp" style=" background-position:32px 0;"></div>
+</body>
+</html>
 ```
 
-## 解析JS原型链
-- 如何你已经大致了解了前言里的知识点，接下来将会是so eazy！首先我想要放上一张经典的JS原型链图，再做细致讲解
+2. WebP
+>WebP是一种适用于Web的图片格式，由Google在2010年发布。WebP 在各大互联网公司已经使用得很多了，国外的有Google、Facebook 和 ebay，国内的有淘宝、腾讯和美团等。WebP的优势在于总体上WebP图片更小，能显著提升图片加载速度，减少流量消耗。与现有图片格式相比，虽然WebP图片大小变小了，但是图片质量凭肉眼难以看出差异。
 
+```html
 
-![avatar](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4717674c55542d3a75ae90d44df1033~tplv-k3u1fbpfcp-zoom-1.image)
-
-### 我们依次对着箭头分析
-1. 
-![avatar](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ecbe791c244045bbaec0fc225a5416ac~tplv-k3u1fbpfcp-zoom-1.image)
-- 实例f1,f2通过__proto__属性找到原型对象Foo.prototype，构造函数Foo()通过prototype属性找到原型对象Foo.prototype。原型对象Foo.prototype可以通过constructor属性找到自己的构造函数Foo()。
-
-```javascript
-var Foo = function () {
-}
-var f1 = new Foo();
-var f2 = new Foo();
-console.log(f1.__proto__===Foo.prototype); //true
-console.log(Foo.prototype.constructor === Foo);//true
-```
-![avatar](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c11716b8cd644ca89430335de482f19~tplv-k3u1fbpfcp-zoom-1.image)
-
-- 构造函数Function()通过prototype属性找到原型对象Function.prototype。原型对象Function.prototype可以通过constructor属性找到自己的构造函数Function()。
-```javascript
-var Foo = function () {
-}
-var f1 = new Foo();
-console.log(Foo.constructor);//[Function: Function]
-```
-2. 
-- 原型对象Foo.prototype也是对象,通过__proto__属性找到Foo.prototype的原型对象Object.prototype
-![avatar](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/569968bc788c4737bd81e9c4256063f6~tplv-k3u1fbpfcp-zoom-1.image)
-```javascript
-var Foo = function () {
-}
-console.log(Object.prototype.toString.call(f1.__proto__));//[object Object]
-console.log(Foo.prototype.__proto__==Object.prototype);//true
 ```
 
 
-3. 
-- 原型对象Object.prototype已经是顶层对象了，所以它的__proto__属性为null
-![avatar](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/157b15dd428e462ea43d49ec4fd5cce9~tplv-k3u1fbpfcp-zoom-1.image)
-```javascript
-console.log(Object.prototype.__proto__);//null
-```
+
+附注：其实还有一种图片转base64编码的技术，但是过于鸡肋，能真正大派用场的地方不多，就不给予赘述，感兴趣的可以自己搜一搜！
 
 
-4. 
-- 实例o1，o2通过__proto__属性找到原型对象Object.prototype，构造函数Object()通过prototype属性找到原型对象Object.prototype。原型对象Object.prototype可以通过constructor属性找到自己的构造函数Object()。
-![avatar](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d26a55edbe74b00bf2e4a61768067f2~tplv-k3u1fbpfcp-zoom-1.image)
-```javascript
-console.log(o1.__proto__===Object.prototype);//true
-console.log(Object.prototype.constructor===Object);//true
-```
-
-5. 
-- **一切函数的构造函数都是Fuction()**
-![avatar](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/207bd8e2906746bb8ea45f61c705b481~tplv-k3u1fbpfcp-zoom-1.image)
-```javascript
-var Foo = function () {
-}
-console.log(Foo.constructor);//[Function: Function]
-console.log(Object.constructor);//[Function: Function]
-console.log(Function.constructor);//[Function: Function]
-```
-
-6. 
-- **一切原型对象除Object.prototype外的原型对象都是Object.prototype**
-![avatar](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9c339d097f843bfb963adecf6bd950e~tplv-k3u1fbpfcp-zoom-1.image)
-```javascript
-var Foo = function () {
-}
-console.log(Foo.prototype.__proto__=== Object.prototype);//true
-console.log(Function.prototype.__proto__ ===Object.prototype);//true
-```
-**(所有步骤都走完后，请你自己对这那张完整的图自己再走一遍，希望你有所收获)**
-
-**以上就是本人对JS原型链的理解。如果对您有所帮助，请赏个赞。如有不妥之处，请在评论区指出。**
-
-图片参考链接：www.cnblogs.com/smoothLily/…

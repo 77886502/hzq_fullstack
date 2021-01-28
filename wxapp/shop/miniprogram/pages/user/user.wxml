@@ -1,0 +1,6 @@
+<!--pages/user/user.wxml-->
+<button bindtap="mix">修改</button>
+<text>{{name}}</text>
+<button bindtap="switch">切换</button>
+<text wx:if="{{vue}}">123</text>
+<!-- <button open-type="getUserInfo">登录</button> -->

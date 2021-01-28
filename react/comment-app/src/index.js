@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import CommentApp from './CommentApp';
 import reportWebVitals from './reportWebVitals';
+import CommentForm from './CommentForm';
+import CommentList from './CommentList';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CommentApp />
   </React.StrictMode>,
   document.getElementById('root')
 );

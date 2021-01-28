@@ -1,4 +1,28 @@
-<view class="header">
-    <view class="search" bindtap="toBar"><input placeholder="请输入"/></view>
-
-</view>
+<van-search  value="{{ value }}"  shape="round"  background="#4fc08d"  placeholder="请输入要搜索的商品"  bind:tap="toSearch"/>
+<van-tabs  active="{{ active }}">
+  <van-tab title="首页"></van-tab>
+  <van-tab title="电脑办公"></van-tab>
+  <van-tab title="食品饮料"></van-tab>
+  <van-tab title="母婴"></van-tab>
+  <van-tab title="手机"></van-tab>
+  <van-tab title="女装"></van-tab>
+</van-tabs>
+<swiper indicator-dots="true" autoplay="true">
+    <swiper-item>
+      <image class="img" src="{{img[0]}}"  mode/>
+    </swiper-item>
+    <swiper-item >
+      <image class="img"  src="{{img[1]}}"  mode />
+    </swiper-item>
+    <swiper-item >
+      <image class="img"  src="{{img[2]}}"  mode />
+    </swiper-item>
+</swiper>
+<van-tabbar  active="{{ active }}"
+  active-color="#F70202"
+  inactive-color="#000">
+  <van-tabbar-item icon="wap-home-o" >首页</van-tabbar-item>
+  <van-tabbar-item icon="apps-o" bind:tap="toCategory">分类</van-tabbar-item>
+  <van-tabbar-item icon="cart-o" bind:tap="toCart">购物车</van-tabbar-item>
+  <van-tabbar-item icon="contact" bind:tap="toUser">个人</van-tabbar-item>
+</van-tabbar>

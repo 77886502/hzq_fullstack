@@ -3,8 +3,9 @@ import './Comment.css';
 export default class Comment extends Component {
     render(){
         return(
-            <div>
+            <div className="swarpper">
                 Comments
+                {this.props.comment.username}:{this.props.comment.content}
             </div>
         )
     }

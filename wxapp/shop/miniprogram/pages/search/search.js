@@ -1,34 +1,13 @@
-// pages/user/user.js
+// pages/search/search.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:'xxx',
-    sw:true,
-    inputVue: 'Hi',
-    age:18,
-    arr:['张三','李四','王五']
+
   },
-  mix(){
-    this.setData({
-        name:'HiLight'
-    })
-  },
-  switch(){
-    console.log("前:"+this.data.vue);
-    this.setData({
-      sw:!this.data.sw
-    })
-    console.log("后:"+this.data.vue);
-  },
-  getInput(e) {
-    // e 就是事件 event
-    this.setData({
-      inputVue: e.detail.value
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

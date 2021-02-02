@@ -1,0 +1,32 @@
+<!-- header -->
+<view class="header">
+  <!-- 搜索框 -->
+  <input type="text" class="search" bindtap="toSearch" placeholder="请输入商品信息"/>
+</view>
+<!-- body -->
+<view>
+  <swiper indicator-dots="true" autoplay="true" interval="3000"> 
+    <swiper-item wx:for="{{img}}" wx:key="*this">
+      <image src="{{item}}" mode="widthFix"></image>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 导航区域 -->
+<view class="nav">
+  <view class="navItem" wx:for="{{nav}}" wx:key="*this">
+    <image mode="widthFix"  src="{{item.img}}"></image>
+    <view class="ce">
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>
+<!-- 商品列表 -->
+<view class="list">
+  <view class="box" bindtap="toDetail" wx:for="{{list}}" wx:key="*this">
+    <image  mode="widthFix" src="{{item.img}}"></image>  
+    <view>
+      <text class="name">{{item.name}}</text>
+      <text class="price">¥{{item.price}}</text> 
+    </view>
+  </view>
+</view>

@@ -2,5 +2,25 @@
 <button bindtap="mix">修改</button>
 <text>{{name}}</text>
 <button bindtap="switch">切换</button>
-<text wx:if="{{vue}}">123</text>
-<!-- <button open-type="getUserInfo">登录</button> -->
+<text wx:if="{{sw}}">123</text>
+<view class="box">
+  <input type="text" value="{{inputVue}}" placeholder="请输入" bindinput="getInput"/>
+  <text>{{inputVue}}</text>
+</view>
+<!-- 条件渲染 if
+    20以下: 少年
+    60以下: 壮年
+    60及以上: 老年
+-->
+<view wx:if="{{age<20}}">少年</view>
+<view wx:elif="{{age>=60}}">老年</view>
+<view wx:else>壮年</view>
+
+<!--
+  列表渲染
+ -->
+<view>===============================</view>
+<view>
+    <view wx:for="{{arr}}" wx:key="*this">{{item}}</view>
+</view>
+<image src="./12.jpg"></image>

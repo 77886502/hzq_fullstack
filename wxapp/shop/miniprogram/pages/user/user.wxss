@@ -1,1 +1,8 @@
 /* pages/user/user.wxss */
+.box {
+    padding: 0 20rpx;
+}
+.box input {
+  border: 1px solid greenyellow;
+  padding-left: 1em;
+}

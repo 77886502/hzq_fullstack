@@ -1,6 +1,12 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/user/user",
+    "pages/cart/cart",
+  
+    "pages/menu/menu",
+    "pages/search/search",
+    "pages/detail/detail",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -22,6 +28,33 @@
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#e43130",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home_s.png"
+    },
+    {
+      "pagePath": "pages/menu/menu",
+      "text": "分类",
+      "iconPath": "images/category.png",
+      "selectedIconPath": "images/category_s.png"
+    },
+    {
+      "pagePath": "pages/cart/cart",
+      "text": "购物车",
+      "iconPath": "images/cart.png",
+      "selectedIconPath": "images/cart_s.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "images/user.png",
+      "selectedIconPath": "images/user_s.png"
+    }]
+  },
+  "sitemapLocation": "sitemap.json"
 }

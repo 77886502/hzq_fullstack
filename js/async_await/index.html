@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 三个ajax 异步请求， 要保证执行顺序
+        1. 传统callback 回调地狱
+        2. promise thenable
+        3. async awiat
+    */
+    // ajax 函数 xhr
+    // 
+    /*
+
+    假如有这么一个函数 async() => {}
+    不止执行一次
+    根据编写顺序来执行
+    */
+    /*
+    function foo(){ // 流程 main
+        // 1. github api
+        // 2. beer
+        // 3. discogs
+        return x * x;
+    }
+    */
+    // Generator function 生成器函数    
+    // function* foo(x){
+    //     console.log('1');
+    //     yield x+1; //返回 记录下状态
+    //     console.log('2');
+    //     yield x+2;
+    //     console.log('3');
+    //     return x+3; //over
+    // }
+    // let steps = foo(1); //执行器
+    // for(let x of steps)
+    // {
+    //     console.log(x);
+    // }
+    // new Promise((resolve, reject)) =>{
+    //     setTimeout(()=>{
+    //         resolve
+    //     }
+        
+    //     )
+    // }
+    function ajax(url)  {
+        fetch(url) //
+          .then(data =>data.json())
+          .then(data =>dataGen.next(data))
+
+    }
+    function* steps() { //生成器函数
+        console.log('fetching beers');
+        const beers = yield ajax('https://api.react.beer/v2/search?q=hops&type=beer');
+        console.log(beers);
+        const wes = yield ajax('https://api.github.com/users/wesbos');
+        console.log(wes);
+        const fatJoe = yield ajax('https://api.discogs.com/artists/51988');
+        console.log(fatJoe);
+    }
+    const dataGen = steps(); //
+    dataGen.next()
+    </script>
+</body>
+</html>

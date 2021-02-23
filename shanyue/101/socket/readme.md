@@ -9,4 +9,6 @@
 不要断开，我要一直保持链接，websocket 新的协议
 聊天室是http协议无法实现的，
 - app.listen(:port)
-- 
+- 101 在websockt 应用场景下，服务器用socket.io 
+    客服端主动申请切换协议 101
+- socket.io 在服务器端启用后 他会提供/socket.io/socket.js

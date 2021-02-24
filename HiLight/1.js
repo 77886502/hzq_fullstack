@@ -1,8 +1,25 @@
-// 函数柯里化 将有多个参数的函数转换成一系列使用一个参数的函数技术
-function add(a,b){
-    return a+b;
-}
-console.log(add('a'));
+function curry (fn, currArgs) {
+    return function() {
+        let args = [].slice.call(arguments);
 
-// var addCurry = curry(add);
-// console.log(addCurry(1)(2)); 3
+        // 首次调用时，若未提供最后一个参数currArgs，则不用进行args的拼接
+        if (currArgs !== undefined) {
+            args = args.concat(currArgs);
+        }
+
+        // 递归调用
+        if (args.length < fn.length) {
+            return curry(fn, args);
+        }
+
+        // 递归出口
+        return fn.apply(null, args);
+    }
+}
+const me = {'name':"Me",'age':23,'sex':'man'}
+function see(obj,key){
+    console.log('obj:'+obj,'key:'+key);
+    return obj[key];
+}
+const search = curry(see);
+console.log(search('age')(me));

@@ -5,4 +5,8 @@
         ts
     - 冴羽 JS系列 小黄书
     - 山月 神三元  面试系列
-1. 开发流程 React + hooks + ts 大型项目 webpack
+1. 开发流程 React + hooks + ts 大型项目 
+    webpack, webpack-cli webpack-dev-server
+    webpack-cli 4.0 版本 与 webpack 5 有兼容性问题
+    手动的指定 安装 webpack cli 3
+    

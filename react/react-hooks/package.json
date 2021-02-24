@@ -4,7 +4,7 @@
   "description": "- react\r         jspang react-touter redux 打卡\r         react hooks class 很少 函数式组件\r         ts\r     - 冴羽 JS系列 小黄书\r     - 山月 神三元  面试系列",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --mode development --inline --hot --open"
   },
   "keywords": [],
   "author": "",

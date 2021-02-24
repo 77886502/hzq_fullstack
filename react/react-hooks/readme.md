@@ -10,3 +10,6 @@
     webpack-cli 4.0 版本 与 webpack 5 有兼容性问题
     手动的指定 安装 webpack cli 3
     
+    1.1 配置开发
+        --hot 热更新
+        

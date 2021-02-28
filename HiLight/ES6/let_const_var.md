@@ -62,3 +62,8 @@ console.log(a); // a is not defined
 + let a = 1;
 + let a = 2; // Identifier 'a' has already been declared
 ``` 
+
+4. `var` 声明的全局变量是顶层对象属性，而 `let` 声明的1全局变量并不是。
+如果本文读完，有所收获，欢迎点赞！😄
+
+参考文献：[《ES6 标准入门》](https://es6.ruanyifeng.com/#docs/let)

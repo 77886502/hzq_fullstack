@@ -2,17 +2,17 @@ import * as React from 'react';
 import { MemberHeader } from './memberHeader';
 import { MemberRow } from './memberRow';
 import { memberAPI } from '../../api/members';
-import {MemberEntity} from '../../model';
-// ts+react 比 js+react 多一个model层
-// 对数据
-interface State{
-  // members:any[]
-  merbers:MemberEntity[]
+// ts + react 比 js +react 多一个model层
+// 对数据进行数据约束
+import { MemberEntity } from '../../model';
+// 类式组件里用 泛型<Props, State>
+interface State {
+    // members: any[]
+    members: MemberEntity[];
 }
-interface Props{
+interface Props {
 
 }
-
 export class MemberPage extends React.Component<Props,State> {
   constructor(props) {
     super(props)
@@ -39,7 +39,7 @@ export class MemberPage extends React.Component<Props,State> {
             <MemberHeader />
           </thead>
           <tbody>
-            {
+          {
               // 遍历我们的state 数据， ts 会报错呢？ state 类型是什么，
               // 显示每个用户的 MemberRow 组件
               this.state.members.map((member) => <MemberRow 

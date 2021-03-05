@@ -1,17 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Menu from './Menu';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// ReactDOM.reader 渲染
+// JSX <> 解析为html  {} 解析为JS
+// 自定义组件 名称必须大写字母开头
+ReactDOM.render(<Menu/>,document.getElementById('root'));

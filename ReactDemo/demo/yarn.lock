@@ -8939,7 +8939,7 @@ react-dev-utils@^11.0.3:
 
 react-dom@^17.0.1:
   version "17.0.1"
-  resolved "https://registry.npm.taobao.org/react-dom/download/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
+  resolved "https://registry.npm.taobao.org/react-dom/download/react-dom-17.0.1.tgz?cache=0&sync_timestamp=1614788440210&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-dom%2Fdownload%2Freact-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
   integrity sha1-HeJWBHTsnw4zQoVmLt5S28VCb8Y=
   dependencies:
     loose-envify "^1.1.0"
@@ -9548,7 +9548,7 @@ saxes@^5.0.0:
 
 scheduler@^0.20.1:
   version "0.20.1"
-  resolved "https://registry.npm.taobao.org/scheduler/download/scheduler-0.20.1.tgz?cache=0&sync_timestamp=1614701752206&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fscheduler%2Fdownload%2Fscheduler-0.20.1.tgz#da0b907e24026b01181ecbc75efdc7f27b5a000c"
+  resolved "https://registry.npm.taobao.org/scheduler/download/scheduler-0.20.1.tgz#da0b907e24026b01181ecbc75efdc7f27b5a000c"
   integrity sha1-2guQfiQCawEYHsvHXv3H8ntaAAw=
   dependencies:
     loose-envify "^1.1.0"

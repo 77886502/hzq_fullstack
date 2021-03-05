@@ -1,0 +1,18 @@
+{
+  "name": "decorator",
+  "version": "1.0.0",
+  "description": "ES7\r - @annotation\r   buffter node\r   html,\r   babel + es6 比较新的特性的题目\r   装饰器 python 等语言\r   装饰一下",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/plugin-proposal-decorators": "^7.13.5",
+    "@babel/preset-env": "^7.13.9"
+  }
+}

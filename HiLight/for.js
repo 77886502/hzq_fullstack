@@ -1,33 +1,22 @@
-var bagOfTokensScore = function(tokens, P) {
-    // 初始先找能量值最低的卡牌兑分，把能量值消耗到无法获取分数。
-    // 再用分数兑能量值最大的卡牌（仅一次），又重复上述。
-    let nowScore = 0, maxScore = 0,min,max;
-    while(true)
+var minOperations = function(nums1, nums2) {
+    nums1 = nums1.sort((a,b) => a-b);
+    nums2 = nums2.sort((a,b) => a-b);
+    let num = 0,sum1 = eval(nums1.join("+")), sum2 = eval(nums2.join("+"));
+    if(sum1 == sum2)
+        return 0;
+    else
     {
-        min = tokens.indexOf(Math.min(...tokens));
-        max = tokens.indexOf(Math.max(...tokens));
-        if(P >= tokens[min])
+        if(sum1 > sum2)
         {
-            nowScore++;
-            P -= tokens[min]; 
-            tokens = [...tokens.slice(0,min),...tokens.slice(min+1)]
-        }
-        else if (nowScore == 0)
-            return maxScore;
-        else if(tokens.length>2&&tokens[max] >= tokens[min])
-        {
-            P=tokens[max]+P-tokens[min];
-            tokens = [...tokens.slice(0,min),...tokens.slice(min+1)];
-            max = tokens.indexOf(Math.max(...tokens));
-            tokens = [...tokens.slice(0,max),...tokens.slice(max+1)];
+            if(nums1.length > nums2.length*6)
+                return -1;
         }
         else
-            return maxScore;
-
-        if(nowScore > maxScore )
-            maxScore = nowScore;
-        console.log(tokens,P,nowScore);
+        {
+            if(nums1.length*6 < nums2.length)
+                return -1;
+    
+        }
     }
-    return maxScore;
+    return num;
 };
-console.log(bagOfTokensScore([100,200,300,400],200));

@@ -1,22 +1,17 @@
-var minOperations = function(nums1, nums2) {
-    nums1 = nums1.sort((a,b) => a-b);
-    nums2 = nums2.sort((a,b) => a-b);
-    let num = 0,sum1 = eval(nums1.join("+")), sum2 = eval(nums2.join("+"));
-    if(sum1 == sum2)
-        return 0;
-    else
+var isValid = function(s) {
+    if(s.length%2!=0)
+        return false;
+    let stack = [];
+    for(let i=0;i<s.length;i++)
     {
-        if(sum1 > sum2)
-        {
-            if(nums1.length > nums2.length*6)
-                return -1;
-        }
+        if(s[i]=='('||s[i]=='{'||s[i]=='[')
+            stack.push(s[i]);
+        else if(stack[stack.length-1]+s[i]=='()'||stack[stack.length-1]+s[i]=='[]'||stack [stack.length-1]+s[i]=='{}')
+            stack.pop();
         else
-        {
-            if(nums1.length*6 < nums2.length)
-                return -1;
-    
-        }
+            return false;
+        if(stack.length>s.length-i-1)
+            return false;
     }
-    return num;
+    return stack.length == 0;
 };

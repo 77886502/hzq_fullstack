@@ -1,17 +1,18 @@
-var isValid = function(s) {
-    if(s.length%2!=0)
-        return false;
-    let stack = [];
-    for(let i=0;i<s.length;i++)
-    {
-        if(s[i]=='('||s[i]=='{'||s[i]=='[')
-            stack.push(s[i]);
-        else if(stack[stack.length-1]+s[i]=='()'||stack[stack.length-1]+s[i]=='[]'||stack [stack.length-1]+s[i]=='{}')
-            stack.pop();
-        else
-            return false;
-        if(stack.length>s.length-i-1)
-            return false;
-    }
-    return stack.length == 0;
-};
+function swap (a,b) {
+    a = a + b;
+    b = a - b;
+    a = a - b;
+}
+let arr = [2,1,2,2,1,2],length =0,maxLength=0;
+arr.push(1);
+arr[arr.length-1] = 2;
+console.log(arr);
+for(let i=0; i<arr.length; i++)
+{
+    if(arr[i]==2)
+        length+=2;
+    else
+        length = 0;
+    if(length>maxLength)
+        maxLength = length;
+}

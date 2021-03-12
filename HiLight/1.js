@@ -1,40 +1,43 @@
-var longestValidParentheses = function(s) {
-    if(s.length==0||s.length==1)
-        return 0;
-    let maxLength = 0,length = 0;
-    let stack = [];
-    for(let i=0;i<s.length;i++)
+var rotate = function(nums, k) {
+    if(k%nums.length!=0)
     {
-        if(s[i] == '(')
-            stack.push(i);
-        else if(stack.length!=0)
-            stack.pop();
-    }
-    console.log();
-    
-    while(stack.length!=0)
-    {
-        s[stack.pop()] = ')';
-    }
-    console.log(s);
-    for(let i=0; i<s.length;i++)
-    {
-        if(s[i] == '(')
-            stack.push('(');
-        else 
+        let start = count = i= 0,item;
+        do
         {
-            if(stack.length!=0)
-            {
-                stack.pop();
-                length+=2;
-            }
-            else
-                length = 0;
+            i = (i+k)%nums.length;
+            count++;
         }
-    
-        if(length>maxLength)
-            maxLength = length;
+        while(start!=i);
+        if(nums.length==count)
+        {
+            item = nums[0];
+            while(count>0)
+            {
+                console.log(i);
+                nums[(i+k)%nums.length] = nums[(i+k)%nums.length] + item;
+                item = nums[(i+k)%nums.length] - item;
+                nums[(i+k)%nums.length] = nums[(i+k)%nums.length] - item;
+                i = (i+k)%nums.length;
+                count--;
+            }
+        }
+        else
+        {
+            for(i=0;i<nums.length/count;i++)
+            {   
+                let j = i,length=0,item=nums[i];
+                do
+                {
+                    nums[(j+k)%nums.length] = nums[(j+k)%nums.length] + item;
+                    item = nums[(j+k)%nums.length] - item;
+                    nums[(j+k)%nums.length] = nums[(j+k)%nums.length] - item;
+                    j = (j+k)%nums.length;
+                    length++;
+                }while(length<count)
+            }
+        }
     }
-    return maxLength;
 };
-console.log(longestValidParentheses("()(()"))
+let arr = [1,2,3,4,5,6,7,8];
+console.log(rotate(arr,4));
+console.log(arr);

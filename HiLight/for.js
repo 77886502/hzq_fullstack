@@ -1,13 +1,16 @@
-
-
-function IsCommon(a,b){
-
-    while (a%b != 0)
-    {
-        tmp=a%b;//取余
-        a = b;//交换a，b可避免a比b小
-        b = tmp;
-    }
-    return b;
+var n = 10
+function fn(){
+    var n =20
+    function f() {
+       n++;
+       console.log(n)
+     }
+    f()
+    return f
 }
-console.log(IsCommon(8,9));
+
+var x = fn() // 21
+x() // 22
+x() // 23
+console.log(n) // 10
+

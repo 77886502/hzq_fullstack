@@ -1,2 +1,10 @@
-let arr = [3,2,6,2,1,7,5,2,3,1,2,8];
-console.log(15%1);
+// 手写一个 instanceof
+function myInstanceof()
+{
+
+}
+// 手写一个能够判断所有类型的方法
+function getType()
+{
+
+}

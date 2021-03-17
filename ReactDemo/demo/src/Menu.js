@@ -1,9 +1,8 @@
 import React,{Component,Fragment} from 'react';
 import Item from './Item';
-
-
-
-
+import Boss from './Boss';
+import './Boss.css';
+import {CSSTransition,TransitionGroup} from 'react-transition-group';
 export default class Menu extends Component{
     //生命周期函数 在某一时刻，可以自动执行的函数
     constructor(props){
@@ -13,27 +12,7 @@ export default class Menu extends Component{
             list:[`洗头`,`洗脚`,`洗澡`]
         }
     }
-    componentWillMount(){
-        console.log('componentWillMount------组件将要挂载到页面的时刻');
-    }
-    componentDidMount() {
-        console.log('componentDidMount-----组件挂载完成的时刻')
-    }
-    shouldComponentUpdate() {
-        console.log('组件更新前----shouldComponentUpdate')
-        return true;
-    }
-    componentWillUpdate() {
-        console.log('componentWillUpdate');
-    }
-    //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps instead.
-    componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps');
-    }
-
-
     render(){
-        console.log('render-------挂载中');
         return(
             // 外层包裹的div 会影响flex布局
             <Fragment>
@@ -50,20 +29,33 @@ export default class Menu extends Component{
                 </div>
                 {/* 数据驱动界面，不需要操作DOM */}
                 <ul ref={(ul)=>{this.ul = ul}}>
-                   {
-                       this.state.list.map( (item,index)=>{
-                            return(
-                                    <Item 
+                    <TransitionGroup>
+                        {
+                            this.state.list.map( (item,index)=>{
+                                return(
+                                    <CSSTransition
+                                        timeout = {2000}
+                                        classNames ='boss-text'
+                                        unmountOnExit
+                                        appear = {true}
                                         key = {index+item}
-                                        content={item}
-                                        index = {index}
-                                        list = {this.state.list}
-                                        deleteItem={this.deleteItem.bind(this)}
-                                    />
-                            ) 
-                       })
-                   }
-                </ul>             
+                                      
+                                    >
+
+                                        <Item 
+                                            key = {index+item}
+                                            content={item}
+                                            index = {index}
+                                            list = {this.state.list}
+                                            deleteItem={this.deleteItem.bind(this)}
+                                        />
+                                    </CSSTransition>                                       
+                                ) 
+                            })
+                        }
+                    </TransitionGroup>                  
+                </ul> 
+                <Boss/>            
             </Fragment>
         )
     }
@@ -77,8 +69,6 @@ export default class Menu extends Component{
         this.setState({
             list:[...this.state.list,this.state.inputValue],
             inputValue:''
-        },()=>{
-            console.log(this.ul.querySelectorAll('li').length);
         })
         
     }

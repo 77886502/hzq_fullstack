@@ -6,17 +6,15 @@ class Item extends Component {
         super(props)
         this.handleClick = this.handleClick.bind(this)
     }
-    // 组件第一次存在于DOM中，函数是不会被执行的
-    // 如果发生变化，且已将存在DOM中，函数才会被执行
-    componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps')
+    // 组件优化 判断子组件状态是否发生改变，不改变无需再次渲染！
+    shouldComponentUpdate(nextProps,nextState) {
+        if(nextProps.content!==this.props.content)
+            return true;
+        else
+            return false;
     }
-    componentWillUnmount()
-    {
-        console.log('componentWillUnmount----组件删除时执行');
-    }
-
     render() { 
+        console.log('child-render');
         return ( 
             <li onClick={this.handleClick}>
             {this.props.avname}为你服务——{this.props.content}

@@ -42,3 +42,14 @@ new Store   做公司 请了个财务
         store.todos
     }
     }
+
+
+- BlogPost CommentList
+    相同点？ 哪些区别？
+    改造下写法？
+
+- POST Comment 初始化相似 数组 render map
+    赋个初值    只写一个组件？ 可以
+    HOC 高阶组件的出现 就是为了实现代码的复用
+    返回值是组件的函数  参数
+    ( ? ) => 值 

@@ -1,4 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TotoList from './TotoList';
-ReactDOM.render(<TotoList/>,document.getElementById('root'));
+import App from './App';
+import 'antd/dist/antd.css'
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+reportWebVitals();

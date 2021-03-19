@@ -48,6 +48,8 @@
     let arr1 
     ```
 2. 如何判断一个变量为数组？
+
+以下是五种手写的方法：
 ```js
     let a = [];
     // 1. instanceof
@@ -65,7 +67,7 @@
     // 5. Object.prototype.toString
     Object.prototype.toString.call(a) === '[onject Array]';
 ```
-ES6 提供了 `Array.isArray()`
+ES6 提供了 `Array.isArray()` 方法判断一个变量是否为数组
 
 ```js
     // Array.isArray(obj)，obj 要检测的值 如果 obj 是 Array，则为true; 否则为false。
@@ -89,8 +91,12 @@ function IsArray(obj)
     1. `Array.prototype.push()` `Array.prototype.pop()` `Array.prototype.reverse()` `Array.prototype.shift()` `Array.prototype.unshift()`
     ```js
     let arr  = [1,2,3];
-    // Array.prototype.push()
-    // Array.prototype.pop() 从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。
+    // Array.prototype.push() push() 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
+    // Array.prototype.pop() 从数组中删除最后一个元素，并返回该元素的值。此方法会更改数组的长度。
+    arr.push(4);
+    console.log(arr); // [1,2,3,4]
+    console.loh(arr.pop()) // 4
+    console.log(arr); // [1,2,3]
     ```
     
 

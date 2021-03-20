@@ -1,19 +1,21 @@
-var getWinner = function(arr, k) {
-    if(k>=arr.length||arr.length==2)
-        return Math.max(...arr);
-    let count=0,i=1,max = Math.max(...arr);
-    while(count!=k&&arr[0]!=max)
+var moveZeroes = function(nums) {
+    let i = 0;
+    for(let j=0;j<nums.length-1;j++)
     {
-        if(arr[0]<arr[i])
-        {    
-            arr[0] = arr[i]
-            count = 1;
+        if(nums[j]==0)
+        {
+            for(i=j+1;i<nums.length;i++)
+            {
+                if(nums[i]!=0)
+                {
+                    [nums[j],nums[i]] = [nums[i],nums[j]];
+                    break;
+                }
+            }
+      
         }
-        else
-            count++;
-        i++;
+        if(nums[j] == 0)
+            break;
     }
-    return arr[0];
 };
-
-console.log(getWinner([2,1,3,5,4,6,7], 2));
+console.log(moveZeroes([0,1,0,3,12]));

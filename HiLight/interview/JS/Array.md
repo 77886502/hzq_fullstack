@@ -13,7 +13,7 @@
     // 使用Array 构造器创建
     
     /* 
-        new Array(len)，当 len 为数值时，len需要小于 2^32(why? len属性是整型变量)，否则抛出异常
+        new Array(len)，当 len 为数值时，len需要小于 2^32(why? len属性是无符号整型变量)，否则抛出异常
         当 len 不为数值时，返回一个只包含 len 元素一项的数组。
     */
     let arr1 = new Array('str');
@@ -30,7 +30,7 @@
     3. `Array.of()`
     ```js
         /*
-            Array.of() 与构造器有相似之处，用于将参数依次转换为数组中的一项然后返回这个数组，而不管这个参数是否为数值。
+            Array.of() 与构造器有相似之处，用于将参数依次转换为数组中的元素然后返回这个数组，而不管这个参数是否为数值。
         */
     let arr1 = Array.of(1);
     let arr2 = Array.of('1',[1],true);
@@ -91,12 +91,15 @@ function IsArray(obj)
     1. `Array.prototype.push()` `Array.prototype.pop()` `Array.prototype.reverse()` `Array.prototype.shift()` `Array.prototype.unshift()`
     ```js
     let arr  = [1,2,3];
-    // Array.prototype.push() push() 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
-    // Array.prototype.pop() 从数组中删除最后一个元素，并返回该元素的值。此方法会更改数组的长度。
+    // push() 将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
+    // pop() 从数组中删除最后一个元素，并返回该元素的值。此方法会更改数组的长度。
     arr.push(4);
     console.log(arr); // [1,2,3,4]
     console.loh(arr.pop()) // 4
     console.log(arr); // [1,2,3]
+    // reverse() 方法将数组中元素的位置颠倒，并返回该数组。数组的第一个元素会变成最后一个，数组的最后一个元素变成第一个。该方法会改变原数组。
+    
+    
     ```
     
 

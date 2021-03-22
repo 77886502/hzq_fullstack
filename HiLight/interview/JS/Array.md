@@ -86,21 +86,32 @@ function IsArray(obj)
 ```
 
 3. 数组有哪些是改变自身的方法？
-    `Array.prototype.push()`，`Array.prototype.pop()`，`Array.prototype.reverse()`，`Array.prototype.shift()` `Array.prototype.unshift()`，`Array.prototype.sort()` `Array.prototype.splice()` 以及ES6 新增的方法 `copyWithin` 和 `fill`
+    1. `Array.prototype.push()`
+        push() 将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
 
-    1. `Array.prototype.push()` `Array.prototype.pop()` `Array.prototype.reverse()` `Array.prototype.shift()` `Array.prototype.unshift()`
-    ```js
-    let arr  = [1,2,3];
-    // push() 将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
-    // pop() 从数组中删除最后一个元素，并返回该元素的值。此方法会更改数组的长度。
-    arr.push(4);
-    console.log(arr); // [1,2,3,4]
-    console.loh(arr.pop()) // 4
-    console.log(arr); // [1,2,3]
-    // reverse() 方法将数组中元素的位置颠倒，并返回该数组。数组的第一个元素会变成最后一个，数组的最后一个元素变成第一个。该方法会改变原数组。
+    2. `Array.prototype.pop()`
+        pop() 从数组中删除最后一个元素，并返回该元素的值。此方法会更改数组的长度。
+
+    3. `Array.prototype.reverse()`
+        reverse() 方法将数组中元素的位置颠倒，并返回该数组。数组的第一个元素会变成最后一个，
+
+    4. `Array.prototype.shift()`
+        shift() 方法从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。
+
+    5. `Array.prototype.unshift()`
+        unshift() 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度(该方法修改原有数组)。
+
+    6. `Array.prototype.sort()`
+        sort() 方法用原地算法对数组的元素进行排序，并返回数组。默认排序顺序是在将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的。由于它取决于具体实现，因此无法保证排序的时间和空间复杂性。
+
+    7. `Array.prototype.splice()`
+        splice() 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。
+
+    8.  `Array.prototype.copyWithin()` 
     
+    9. `fill`
+
     
-    ```
     
 
 3. 数组有哪些是不改变自身的方法？

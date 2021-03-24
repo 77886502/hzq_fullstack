@@ -1,6 +1,3 @@
-let age = 0;
+let age = -1;
 
-if(!age)
-    console.log("age为0");
-else
-    console.log("age不为0");
+console.log(Boolean(-1));

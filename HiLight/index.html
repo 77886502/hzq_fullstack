@@ -114,7 +114,10 @@ function LinkList(){
             index--;
         }
         traversal.next = traversal.next.next;
-    }   
+    }
+    this.destroy = () => {
+        this.head = null;
+    }
 } 
     let list = new LinkList();
     list.append(1);

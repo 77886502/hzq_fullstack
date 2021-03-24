@@ -72,10 +72,6 @@ function LinkList(){
         // 找不到返回 -1
         return -1;
     }
-    // 8.删除链表中某个元素
-    this.deleteElement = (data) => {
-
-    }
     // 9.删除链表中某个位置的元素
     this.remove = (index) => {
         let traversal = this.head;
@@ -86,6 +82,17 @@ function LinkList(){
         }
         traversal.next = traversal.next.next;
     }   
+    // 销毁链表 
+    this.destroy = () => {
+        let node = this.head;
+        let to = node;
+        while(node)
+        {
+            node = node.next;
+            to = null;
+            to = node;
+        }
+    }
 }
 let list = new LinkedList();
 list.append(1);

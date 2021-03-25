@@ -13,15 +13,14 @@ function LinkList(){
     this.head = null;
     this.length = 0;
     // 生成一个结点
-    function Node(data)
-    {
-        this.data = data;
+    function Node(element){
+        this.element = element;
         this.next = null;
     }
     // 1.向链表尾部添加元素
-    this.append = (data) => {
+    this.append = (element) => {
         // 生成一个结点
-        let node = new Node(data);
+        let node = new Node(element);
 
         // 判断是否添加的结点是否为第一个
         if(this.head == null)
@@ -37,38 +36,19 @@ function LinkList(){
         this.length++;
     }
     // 2.遍历链表元素
-    this.print = () => {
+    this.traversal = () => {
         let traversal = this.head;
         // 到 null 为止
         while(traversal){
-            console.log(traversal.data);
+            console.log(traversal.element);
             traversal = traversal.next;
         }
     }
     // 3.判断链表是否为空
-    this.isEmpty = () => {
-        this.length == 0 ? true:false; 
-    }   
+    this.isEmpty = () => this.length == 0 ? true:false;    
     // 4.向链表任意位置插入一个元素
-    this.insert = (data,index) => {
-        if(index-this.length>1)
-        {    
-            console.log('插入的位置不在链表范围内');
-            return false;
-        }
-        let traversal = this.head;
-        let node = new Node(data);
-        // 要在插入位置的前一个位置停住
-        index = index - 2;
-        while(index){
-            traversal = traversal.next;
-            index--;
-        }
-        node.next = traversal.next;
-        traversal.next = node;
-        console.log('插入成功');
-        return true;
-        
+    this.insert = (element,index) => {
+
     }
     // 5.查询某个位置的链表元素
     this.findElement = (index) => {
@@ -80,18 +60,18 @@ function LinkList(){
             traversal = traversal.next;
             index--;
         }
-        return traversal.data;
+        return traversal.element;
     }
     // 6.链表长度
     this.getLength = () => {
         return this.length;
     }
     // 7.查询某个元素在链表中的位置
-    this.search = (data) => {
+    this.search = (element) => {
         let traversal = this.head;
         let index = 1;
         while(traversal){
-            if(traversal.data == data)
+            if(traversal.element == element)
                 return index;
             else
                 index++;
@@ -100,10 +80,6 @@ function LinkList(){
         // 找不到返回 -1
         return -1;
     }
-    // 8.删除链表中某个元素
-    this.deleteElement = (data) => {
-
-    }
     // 9.删除链表中某个位置的元素
     this.remove = (index) => {
         let traversal = this.head;
@@ -111,14 +87,21 @@ function LinkList(){
         index = index - 2;
         while(index){
             traversal = traversal.next;
-            index--;
         }
         traversal.next = traversal.next.next;
-    }
+    }   
+    // 销毁链表 
     this.destroy = () => {
-        this.head = null;
+        let node = this.head;
+        let to = node;
+        while(node)
+        {
+            node = node.next;
+            to = null;
+            to = node;
+        }
     }
-} 
+}
     let list = new LinkList();
     list.append(1);
     list.append(2);
@@ -129,7 +112,7 @@ function LinkList(){
     list.append(7);
     list.append(8);
     list.append(9);
-    list.print();
+    list.traversal();
 </script>
 </body>
 </html>

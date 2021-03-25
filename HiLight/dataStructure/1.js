@@ -2,15 +2,14 @@ function LinkList(){
     this.head = null;
     this.length = 0;
     // 生成一个结点
-    Node = (data) =>
-    {
-        this.data = data;
+    function Node(element){
+        this.element = element;
         this.next = null;
     }
     // 1.向链表尾部添加元素
-    this.append = (data) => {
+    this.append = (element) => {
         // 生成一个结点
-        let node = new Node(data);
+        let node = new Node(element);
 
         // 判断是否添加的结点是否为第一个
         if(this.head == null)
@@ -30,7 +29,7 @@ function LinkList(){
         let traversal = this.head;
         // 到 null 为止
         while(traversal){
-            console.log(traversal.data);
+            console.log(traversal.element);
             traversal = traversal.next;
         }
     }
@@ -39,7 +38,7 @@ function LinkList(){
         this.length == 0 ? true:false; 
     }   
     // 4.向链表任意位置插入一个元素
-    this.insert = (data,index) => {
+    this.insert = (element,index) => {
 
     }
     // 5.查询某个位置的链表元素
@@ -52,18 +51,18 @@ function LinkList(){
             traversal = traversal.next;
             index--;
         }
-        return traversal.data;
+        return traversal.element;
     }
     // 6.链表长度
     this.getLength = () => {
         return this.length;
     }
     // 7.查询某个元素在链表中的位置
-    this.search = (data) => {
+    this.search = (element) => {
         let traversal = this.head;
         let index = 1;
         while(traversal){
-            if(traversal.data == data)
+            if(traversal.element == element)
                 return index;
             else
                 index++;
@@ -97,4 +96,3 @@ function LinkList(){
 let list = new LinkedList();
 list.append(1);
 list.append(2);
-list.pri

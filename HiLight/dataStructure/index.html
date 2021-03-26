@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function LinkList(){
+    this.head = null;
+    this.length = 0;
+}
+LinkList.prototype = {
+    // 向链表尾部添加元素
+    append:function (element){
+        let node = {element:element,head:null};
+        if(this.head==null)
+        {
+            this.head = node;
+        }
+        else
+        {
+            let rehead = this.head;
+            while(rehead.next)
+            {
+                rehead = rehead.next;
+            }
+            rehead.next = node;
+        }
+        this.length++;
+    },
+
+    // 链表指定位置插入元素
+    insert:function(index,element){
+        // 判断插入位置是否合法
+        if(index-this.length>1)
+        {
+            console.log('插入元素位置不合理，插入失败');
+        }
+        else
+        {
+            let node = {element:element,next:null}
+            if(index==1)
+            {
+                node.next = this.head;
+                this.head = node;
+            }
+            else
+            {
+                let rehead = this.head;
+                // 从头结点出发走到index位置 需要走index-1次
+                // 但插入某个元素必须要在它前一个元素停止，因此需要 index-2次
+                while(index!=2)
+                {
+                    rehead = rehead.next;
+                    index--;
+                }
+                node.next = rehead.next;
+                rehead.next = node; 
+            }
+            this.length++;
+        }
+    },
+    
+    // 链表指定位置删除元素
+    deleteElement:function(index){
+        if(index>this.length)
+        {
+            consle.log('删除元素位置不合理，删除失败')
+        }
+        else
+        {
+            let rehead = this.head;
+            if(index==1)
+            {
+                this.head = this.head.next;
+            }
+            else
+            {
+                // 从头结点出发走到index位置 需要走index-1次
+                // 但删除某个元素，必须在它前一个元素停止 因此需要 index-2次
+                while(index!=2)
+                {
+                    rehead = rehead.next;
+                }
+                rehead.next = rehead.next.next;
+            }
+            thi.length--;
+        }
+    },
+ 
+    // 链表指定位置修改元素
+    setElement:function(index,element){
+        // 判断查询的位置是否合法
+        if(index>this.length)
+        {
+            console.log('修改元素位置不合理,修改失败');
+        }
+        else
+        {
+            let rehead = this.head;
+            // 从头结点出发走到index位置 需要走index-1次
+            while(index!=1)
+            {
+                rehead = rehead.next;
+                index--;
+            }
+            rehead.element = element;
+            
+        }
+    }, 
+    
+    // 链表指定位置查询元素
+    getElement:function(index){
+        // 判断查询的位置是否合法
+        if(index>this.length)
+        {
+            console.log('查询元素位置不合理,查询失败');
+        }
+        else
+        {
+            let rehead = this.head;
+            // 从头结点出发走到index位置 需要走index-1次
+            while(index!=1)
+            {
+                rehead = rehead.next;
+                index--;
+            }
+            console.log(rehead.element);
+            
+        }
+    }, 
+    
+    // 删除链表
+    destory:function(){
+        this.head = null;
+        this.length = 0;
+    },
+
+    // 遍历链表
+    traversal:function(){
+        let rehead = this.head;
+        while(rehead)
+        {
+            console.log(rehead.element);
+            rehead = rehead.next;
+        }
+    }, 
+
+    // 判断链表是否为空
+    isEmpty:function(){
+        if(this.length)
+            return false;
+        else
+            return true;
+    },
+    
+    // 查询链表长度
+    getLength:function(){
+        return this.length;
+    }
+}
+
+let list = new LinkList();
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(4);
+list.append(5);
+list.append(6);
+list.traversal();
+</script>
+</body>
+</html>

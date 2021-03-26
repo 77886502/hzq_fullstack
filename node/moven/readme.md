@@ -8,4 +8,13 @@
     数据库 -> Model -> Controller -> Router(API)
     post 
     someone -> http -> req(url) -> router -> controller -> Model -> mysql2(翻译官)
-    
+
+- posts add 
+    controller -> restful 路径
+    mysql post POST /posts 
+    - router 在哪里？ 
+    - controller 
+    - model service
+
+- 单点入口
+

@@ -1,3 +1,2 @@
-let age = -1;
-
-console.log(Boolean(-1));
+if(null == null)
+    console.log('1');

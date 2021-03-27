@@ -3,7 +3,7 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 import postRouter from '../post/post.router';
-
+import {defaultErrorHandler} from './app.minddleware';
 const app = express();
 const bParser = require('body-parser');
 // app 处于侍服状态 eventEmitter
@@ -19,4 +19,6 @@ app.use( // 函数
     // ...
 
 )
+// 处理各种错误
+app.use(defaultErrorHandler);
 export default app;

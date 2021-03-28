@@ -7,3 +7,7 @@
   createContext.Provider  createContext.Provider
   value                     strore
   useContext                架构细致
+
+userInfo 我们的用户信息
+1. useEffect -> dispatch action {changeUserInfo,payload}
+-> api -> 163 music api

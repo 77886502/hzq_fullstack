@@ -1,31 +1,32 @@
+import {CHANGE_INPUT,ADD_ITEM,DELETE_ITEM,GET_LIST} from './actionTypes';
 const defaultState = {
-    inputValue: '写点什么呢',
-    list:[
-        '8:00 起床',
-        '8:30 早餐',
-        '9:00 工作',
-        '12:00 午餐'
-    ]
+    inputValue: '',
+    list:[]
 }
 export default (state = defaultState,action) => {
-    console.log(state,action);
     // Reducer 只能接受state 不能改变 state 
-    if(action.type === 'changeInput'){
+    if(action.type === CHANGE_INPUT){
         let newState = JSON.parse(JSON.stringify(state))
         newState.inputValue = action.value
         return newState
     }
-    if(action.type === 'addItem')
+    if(action.type === ADD_ITEM)
     {
         let newState = JSON.parse(JSON.stringify(state))
         newState.list.push(newState.inputValue);
         newState.inputValue = ''
         return newState
     }
-    if(action.type === 'deleteItem')
+    if(action.type === DELETE_ITEM)
     {
         let newState = JSON.parse(JSON.stringify(state))
         newState.list.splice(action.index,1);
+        return newState
+    }
+    if(action.type === GET_LIST)
+    {
+        let newState = JSON.parse(JSON.stringify(state))
+        newState.list = action.data.list;
         return newState
     }
     return state;

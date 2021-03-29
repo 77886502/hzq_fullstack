@@ -26,36 +26,14 @@ export default class Menu extends Component{
                         ref = {(input) => {this.input = input}}
                     /> 
                     <button onClick={this.addList.bind(this)}>增加服务</button>
-                </div>
-                {/* 数据驱动界面，不需要操作DOM */}
-                <ul ref={(ul)=>{this.ul = ul}}>
-                    <TransitionGroup>
-                        {
-                            this.state.list.map( (item,index)=>{
-                                return(
-                                    <CSSTransition
-                                        timeout = {2000}
-                                        classNames ='boss-text'
-                                        unmountOnExit
-                                        appear = {true}
-                                        key = {index+item}
-                                      
-                                    >
-
-                                        <Item 
-                                            key = {index+item}
-                                            content={item}
-                                            index = {index}
-                                            list = {this.state.list}
-                                            deleteItem={this.deleteItem.bind(this)}
-                                        />
-                                    </CSSTransition>                                       
-                                ) 
-                            })
-                        }
-                    </TransitionGroup>                  
-                </ul> 
-                <Boss/>            
+                </div> 
+                <ul>
+                {
+                    this.state.list.map((item,index)=>{
+                        return (<li key={index} onClick={this.deleteItem.bind(this,index)} >{item}</li>)
+                    })
+                }
+            </ul>         
             </Fragment>
         )
     }

@@ -1,2 +1,3 @@
-if(null == null)
-    console.log('1');
+let pp = () => ({a:1});
+
+console.log(pp);

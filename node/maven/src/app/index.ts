@@ -3,6 +3,7 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 import postRouter from '../post/post.router';
+import userrouter from '../user/user.router';
 import {defaultErrorHandler} from './app.minddleware';
 const app = express();
 const bParser = require('body-parser');
@@ -14,6 +15,7 @@ app.use(bParser.urlencoded());
 // 所有的路由都在这里汇总
 app.use( // 函数
     // 文章模块的路由存，删 改 查
+    userrouter,
     postRouter,
     // 用户路由
     // ...

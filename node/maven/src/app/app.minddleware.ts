@@ -11,15 +11,15 @@ export const defaultErrorHandler = (
     let statusCode:number,message:string;
     /* 处理异常 */
     switch(error.message){
-        case 'NAME_IS_REQUIRD':
+        case 'NAME_IS_REQUIRED':
             statusCode=400;
             message = '请提供用户名';
             break;
-        case '':
+        case 'PASSWORD_IS_REQUIRED':
             statusCode=400;
             message = '请提供密码';
             break;
-        case 'USER_ALREADY_EXSIT':
+        case 'USER_ALREADY_EXIST':
             statusCode=409;
             message = '用户名已被占用';
             break;

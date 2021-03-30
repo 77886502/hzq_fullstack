@@ -1,3 +1,13 @@
-let pp = () => ({a:1});
+function Animal(){
+    this.type = 'animal',
+    this.say = function(){
+        console.log('wow!');
+    }
+}
+function Dog(name,age){
+    this.name = name;
+    this.age = age;
+}
+Dog.prototype = new Animal();
 
-console.log(pp);
+let doge = new Dog('doge',7);

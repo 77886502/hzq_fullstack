@@ -46,7 +46,7 @@ const c = [1,2,3]; // Array 类型
 +}
 +console.log(a); // 1
 ```
- 在此列举一个 `var` 作用域函数级的例子
+在此列举一个 `var` 作用域函数级的例子
 ```js
 function put(){
     var a = 1;

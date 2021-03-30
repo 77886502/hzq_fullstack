@@ -12,33 +12,34 @@
 function LinkList(){
     this.head = null;
     this.length = 0;
+}
+{
     function Node(element){
         this.element = element;
         this.next = null;
     }
-}
-LinkList.prototype = {
-    append:function (element){
-        let rehead = this.head;
-        let node = new Node(element);
-        if(rehead==null)
-        {
-            rehead = node;
-        }
-        else
-        {
-            while(rehead.next)
+    LinkList.prototype = {
+        append:function (element){
+            let rehead = this.head;
+            let node = new Node(element);
+            if(rehead==null)
             {
-                rehead = rehead.next;
+                rehead = node;
             }
-            rehead.next = node;
+            else
+            {
+                while(rehead.next)
+                {
+                    rehead = rehead.next;
+                }
+                rehead.next = node;
+            }
+            console.log(this);
         }
-        console.log(this);
     }
 }
+
 let list = new LinkList();
-list.append(1);
-list.append(2);
 </script>
 </body>
 </html>

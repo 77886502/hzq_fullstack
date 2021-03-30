@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>链表</title>
 </head>
 <body>
 <script>
@@ -15,7 +15,7 @@ function LinkList(){
 LinkList.prototype = {
     // 向链表尾部添加元素
     append:function (element){
-        let node = {element:element,head:null};
+        let node = {element:element,next:null};
         if(this.head==null)
         {
             this.head = node;
@@ -164,6 +164,26 @@ LinkList.prototype = {
 }
 
 let list = new LinkList();
+list.append(1);
+list.append(2);
+let left = list.head, right = list.head;
+while(left!=null&&left.next!=null)
+{
+    left = left.next.next;
+    right = right.next;
+}
+if(left!=null)
+    right = right.next;
+left = list.head;
+console.log(left,right)
+while(right)
+{
+    if(left.e != right.val)
+        console.log('false')
+    left = left.next;
+    right = right.next;
+}
+console.log('true');
 </script>
 </body>
 </html>

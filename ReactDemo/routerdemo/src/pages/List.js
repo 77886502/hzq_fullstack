@@ -6,7 +6,12 @@ class List extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <h2>JS.com</h2> );
+        return ( <h2>列表 List {this.state.id}</h2> );
+    }
+    componentDidMount(){
+        console.log(this.props);
+        let tempId = this.props.match.params.id
+        this.setState({id:tempId})
     }
 }
  

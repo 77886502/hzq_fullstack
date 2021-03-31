@@ -1,13 +1,14 @@
-function Animal(){
-    this.type = 'animal',
-    this.say = function(){
-        console.log('wow!');
+let dog = {
+    name:"dog",
+    type:[],
+    sayName: function(){
+        console.log(`My name is ${this.name}`)
     }
-}
-function Dog(name,age){
-    this.name = name;
-    this.age = age;
-}
-Dog.prototype = new Animal();
+} 
+let doge = Object.create(dog);
+let cheems = Object.create(dog);
+doge.name = "doge";
+console.log(doge.name);
 
-let doge = new Dog('doge',7);
+doge.type.push("doge");
+console.log(cheems.type);

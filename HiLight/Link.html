@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链式继承</title>
+</head>
+<body>
+<script>
+function Animal(){
+    this.type = "animal";
+    this.show = ["dog"];
+}
+function Dog(name,age){
+    this.name = name;
+    this.age = age;
+}
+Dog.prototype = new Animal();
+let doge = new Dog("doge",7);
+let cheems = new Dog("cheems",3);
+doge.show.push("doge");
+cheems.show.push("cheems");
+console.log(Dog.prototype.show); // ["dog","doge","cheems"]
+</script>
+</body>
+</html>

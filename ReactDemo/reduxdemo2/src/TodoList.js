@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux'
-
+import './page.css'
 
 const TodoList =(props)=>{
     let {inputValue ,inputChange,clickButton,list,deleteItem} = props; // 粘贴过来后，此处要进行修改
     return (
-        <div>
+        <div className="box">
             <div>
                 <input placeholder="写点什么呢" value={inputValue} onChange={inputChange} />
                 <button onClick={clickButton}>提交</button>

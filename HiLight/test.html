@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>继承</title>
 </head>
 <body>
 <script>
 function Animal(){
     this.type = 'animal';
-    this.show = ['dog'];
+    this.show = ['cat','pig'];
 }
 Animal.prototype.sayName = function(){
     console.log(`My name is ${this.name}`)
@@ -22,17 +22,7 @@ function Dog(name,age){
 }
 Dog.prototype = new Animal();
 
-let doge = new Dog("doge",5);
-let cheems = new Dog("cheems",3);
 
-console.log(cheems.name); // cheems
-console.log(cheems.sayName()); // My name is cheems
-
-doge.show.push("doge"); 
-cheems.show.push("cheems");
-
-console.log(doge.show); // ["dog","cheems"]
-console.log(cheems.show); // ["dog","cheems"]
 
 </script>
 </body>

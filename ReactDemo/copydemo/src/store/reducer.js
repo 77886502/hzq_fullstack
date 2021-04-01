@@ -1,7 +1,5 @@
 const defaultState = {
-    inputValue:'',
-    list:['8:00 起床','8:30 吃饭','9:00 上班'],
-    skin:false
+    logIn:false
 };
 export default (state = defaultState,action) => {
     // Reducer里只能接受state,不能直接改变state
@@ -29,6 +27,18 @@ export default (state = defaultState,action) => {
     {
         let newState = JSON.parse(JSON.stringify(state))
         newState.skin = action.skin;
+        return newState
+    }
+    if(action.type === 'LogIn')
+    {
+        let newState = JSON.parse(JSON.stringify(state))
+        newState.logIn = true;
+        return newState
+    }
+    if(action.type === 'Close')
+    {
+        let newState = JSON.parse(JSON.stringify(state))
+        newState.logIn = false;
         return newState
     }
     

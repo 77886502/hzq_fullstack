@@ -1,0 +1,18 @@
+{
+  "name": "che-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "add": "^2.0.6",
+    "express": "^4.17.1",
+    "mocker-api": "^2.8.3",
+    "path": "^0.12.7"
+  }
+}

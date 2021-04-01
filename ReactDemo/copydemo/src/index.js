@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import TodoList from './TodoList';
-import Login from './Login';
-// import 'antd/dist/antd.css'
-import './index.css';
+// import Login from './Login';
+import {Provider} from 'react-redux'
+import Home from './home';
+import store from './store'
+const App = (
+  <Provider store={store}>
+    <Home/>
+  </Provider>
+)
 
-ReactDOM.render(
-  <Login/>,
-  document.getElementById('root')
-);
+ReactDOM.render(App,document.getElementById('root'));
 

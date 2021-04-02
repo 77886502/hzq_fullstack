@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 const Login = (props) => {
     let {login,Close} = props;
     return (
-            <div className="formBox">
+            <div className={login?"formBox":"noneBox"}>
                 <div>
                     <img alt="登录" className="panda" src="https://sf3-scmcdn2-tos.pstatp.com/xitu_juejin_web/img/normal.0447fe9.png"/>
                 </div>
@@ -39,11 +39,9 @@ const stateToProps = (state) => {
 const dispatchToProps = (dispatch) =>{
     return {
         Close(){
-            console.log(document.getElementsByClassName("frame"));
-            let action = {
-                type:'Close'
-            }
-            dispatch(action)
+           let action = {
+               type:"Close"
+           }
         }
     }
 }

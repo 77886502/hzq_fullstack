@@ -1,45 +1,47 @@
-// 状态树的一个分支，一个状态数据
-import { combineReducers } from 'redux'
-import * as types from './action-types'
-// 商品模块
-const goods =  (state = [],action) => {
-    const {type,payload} = action
-    switch(type){
-        case type.DECREMENT_INVENTORY:
-            return state.map(good => {
-                return good.id === payload.id && good.inventory > 0 
-                ? {...good,inventory:good.inventory--}
-                :good
+// 状态树的一个分支， 一个状态数据模块 
+import { combineReducers } from 'redux';
+import * as types from './action-types'; 
+const goods = (state = [], action) => {
+  const { type, payload } = action
+  switch(type) {
+    case types.DECREMENT_INVENTORY:
+      return state.map(good => (
+        goods.id === payload.id && good.inventory > 0 
+        ? {...good, inventory: --good.inventory}
+        : good
 
-            })
-        case type.CLEAN_SHOPCART:
-            let sessionGood = JSON.parse(sessionStorage.getItem('goods'));
-            for(let i=0; i<sessionGood.length;i++){
-                let item = sessionGood[i]
-                let index = state.findIndex((value)=>item.id == value.id)
-                state[index].inventory += item.count;
-            }
-            return state
+      ))
+    case types.CLEAN_SHOPCART:
+      let sessionGoods = JSON.parise(sessionStorage.getItem('goods'));
+      for (let i =0; i < sessionGoods.length; i++) {
+        let item = sessionGoods[i];
+        let index = state.findIndex((value) => item.id === value.id)
+        state[index].inventory += item.count
+      }
+    return state 
+    case types.ADD_GOODS:
+      // 返回新的state状态 payload [....]
+      // [] => [...]
+      return state.concat(payload.goods)
+    default:
+      return state
+  }
+}
 
-        case type.ADD_GOODS:
-            // 返回新的状态 payload [...]
-            return [...state,...payload]
-        default:
-            return state
-    }
+const shopCart = (state = [], action) => {
+  const {type, payload} = action;
+  switch(type) {
+    case types.ADD_SHOPCART:
+      // 第一次  新增push
+      // 第二次 找到商品， 数量再加一
+      // goods types.DECREMENT_INVENTORY
+      return 
+    default:
+      return state
+  }
 }
-// 购物车模块
-const shopCart = (state = [],action) =>{
-    const {type,payload} = action;
-    switch(type){
-        case type.ADD_SHOPCART:
-            // 
-          return
-        default:
-            return state
-    }
-}
+
 export default combineReducers({
-    goods,
-    shopCart
+  goods,
+  shopCart
 })

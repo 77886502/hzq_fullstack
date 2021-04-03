@@ -3,6 +3,9 @@ import qs from 'qs';
 axios.defaults.baseURL = "http://127.0.0.1:3002";
 axios.defaults.timeout = 10000;
 axios.defaults.withCredentials = true;
+// 某种请求的时候，需要的？ headers? 请求 请求头、请求体
+// text/html text.json image/jpeg
+// ? 服务器 知道怎么处理这些请求体 
 axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 // axios.defaults.transformRequest = data => qs.stringify(data);
 /* 

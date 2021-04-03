@@ -42,6 +42,7 @@ const dispatchToProps = (dispatch) =>{
            let action = {
                type:"Close"
            }
+           dispatch(action);
         }
     }
 }

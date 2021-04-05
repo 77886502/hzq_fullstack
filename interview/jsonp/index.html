@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JSONP</title>
+</head>
+<body>
+    <!-- text/js js文件执行的 -->
+    <script src="./a.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+           function callback(data){
+            console.log(data);
+        }
+    </script>
+    <script src="https://photo.sina.cn/aj/index?page=1&cate=recommend&callback=callback">
+    // 不加callback 同源
+    // 加&callback=callback callback(data); 同源
+
+    </script>
+
+</body>
+</html>

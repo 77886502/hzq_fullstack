@@ -1,14 +1,9 @@
-let dog = {
-    name:"dog",
-    type:[],
-    sayName: function(){
-        console.log(`My name is ${this.name}`)
+var reverseString = function (s){
+    for(let i=0;i<s.length/2;i++)
+    {
+        
     }
-} 
-let doge = Object.create(dog);
-let cheems = Object.create(dog);
-doge.name = "doge";
-console.log(doge.name);
-
-doge.type.push("doge");
-console.log(cheems.type);
+}
+let str = new String("str");
+console.log(str);
+// console.log(reverseString());

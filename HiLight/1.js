@@ -1,9 +1,16 @@
-var reverseString = function (s){
-    for(let i=0;i<s.length/2;i++)
+var reverse = function(x) {
+    let num = "";
+    if(x>=0)
     {
-        
+        num = +[...(num+x)].reverse().join("");
     }
-}
-let str = new String("str");
-console.log(str);
-// console.log(reverseString());
+    else
+    {
+        num =  +[...(num+Math.abs(x))].reverse().join("");
+        num = -num;
+    }
+    return num;
+
+};
+let num = -100;
+console.log(reverse(num));

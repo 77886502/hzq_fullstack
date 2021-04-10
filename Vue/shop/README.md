@@ -1,0 +1,3 @@
+- assets文件夹 放静态资源
+- components 组件 
+- view文件夹 页面

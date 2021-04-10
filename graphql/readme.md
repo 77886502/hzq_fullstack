@@ -18,3 +18,6 @@ JSON-server
       就有了
     4. graphql 可以省去很多的请求浪费
     5. 前端可以自己决定用哪些字段
+  全栈能力还有一个月左右完备，
+    mysql + ts + egg.js(企业级) + graphql + redis + node 一线以上实习实战能力的。
+企业级的node 框架的一些后端术养

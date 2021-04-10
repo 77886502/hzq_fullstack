@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .parent{
+            width: 0;
+            height: 0;
+            border: 50px;
+            border-style: solid;
+            border-color: #000 transparent transparent;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app"></div>
+<script>
+    let el = document.getElementById('app');
+    el.style.width = (el.offsetWidth+1)+'px';
+    el.style.width = 1+'px';
+</script>
+<script>
+    div.style.display="none";
+    div.style.left="10px";
+    div.style.top="10px";
+    div.style.width="10px";
+    div.style.height="10px";
+    div.style.display="block";
+</script>
+</body>
+</html>

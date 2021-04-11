@@ -5,15 +5,14 @@ export default createStore({
     count: 0
   },
   mutations: { // 放更改状态的函数
-    // 自带state
-    addCount(state){
-      state.count++;
+    addCount(state) {
+      state.count++
+      console.log(state.count);
     }
   },
   actions: {
-    actionAddCount(ctx){
-      ctx.commit("addCount") // 提交mutations里面的方法
-     
+    actionAddCount(ctx) {
+      ctx.commit('addCount') // 提交mutations里面的方法
     }
   },
   modules: {

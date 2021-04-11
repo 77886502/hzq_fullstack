@@ -1,7 +1,7 @@
 <template>
-    <div class="app">
-      <router-view></router-view>
-    </div>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
 <style lang="less">
@@ -12,5 +12,4 @@
   text-align: center;
   color: #2c3e50;
 }
-
 </style>

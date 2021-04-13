@@ -5,7 +5,6 @@
   </van-swipe-item>
 </van-swipe>
 </template>
-
 <script>
 export default {
     props:{

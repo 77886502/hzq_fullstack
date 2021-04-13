@@ -27,7 +27,9 @@
         </div>
         <!-- 新品上线 -->
         <goodsList :goods ="newGoodses" title="新品上线" />
-        <goodsList :goods ="newGoodses" title="热门上线" />
+        <goodsList :goods ="hotGoodses" title="热门商品" />
+        <goodsList :goods ="recommendGoodses" title="推荐商品" />
+        <tabbar/>
     </div>
 </template>
 
@@ -37,6 +39,7 @@ import Swiper from '@/components/Swiper'
 import { Toast } from 'vant'
 import { getHome } from "@/service/home"
 import goodsList from '@/components/GoodsList';
+import tabbar from '@/components/Tabbar';
 export default {
     setup() {
         const state = reactive({
@@ -96,6 +99,8 @@ export default {
                 },
             ],
             newGoodses:[],
+            hotGoodses:[],
+            recommendGoodses:[],
             HeadersScroll:false // 透明判断
         })
         onMounted(async () => {
@@ -112,6 +117,8 @@ export default {
             console.log(data)
             state.swiperList = data.carousels
             state.newGoodses = data.newGoodses
+            state.hotGoodses = data.hotGoodses
+            state.recommendGoodses = data.recommendGoodses
         })
         window.addEventListener('scroll',()=>{
             let scrollTop = window.pageXOffset || document.documentElement.scrollTop
@@ -126,7 +133,8 @@ export default {
     },
     components: {
         Swiper,
-        goodsList
+        goodsList,
+        tabbar
     }
 }
 </script>

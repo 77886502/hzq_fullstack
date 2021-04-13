@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <!-- header -->
-    <s-header :name="type==='login'?'登录':'注册'"></s-header>
+    <sHeader :name="type==='login'?'登录':'注册'"></sHeader>
     <img
       class="logo"
       src="//s.yezgea02.com/1604045825972/newbee-mall-vue3-app-logo.png"

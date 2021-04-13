@@ -19,9 +19,6 @@ axios.interceptors.response.use(res => {
     if (res.data.message) Toast.fail(res.data.message)
     if (res.data.resultCode == 416) {
       Toast.fail('登录失效')
-      setTimeout(() => {
-        router.push({ path: '/login' })
-      }, 1000)
     }
     return Promise.reject(res.data)
   }

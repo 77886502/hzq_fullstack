@@ -1,9 +1,9 @@
 <template>
   <div class="good">
-    <header class="good-header">新品上线</header>
+    <header class="good-header">{{title}}</header>
     <div class="good-box">
       <div class="good-item" v-for="item in goods" :key="item.goodsId">
-        <img :src="item.goodsCoverImg" alt="">
+        <img  :src="item.goodsCoverImg" alt="">
         <div class="good-desc">
           <div class="title">{{item.goodsName}}</div>
           <div class="price">¥ {{item.sellingPrice}}</div>

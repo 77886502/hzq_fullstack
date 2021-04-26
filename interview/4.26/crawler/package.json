@@ -1,0 +1,15 @@
+{
+  "name": "4.26",
+  "version": "1.0.0",
+  "description": "项目中的——特点: 全栈的展示\r - sql limit offset\r - 前端分页 Antd 列表组件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "superagent": "^6.1.0"
+  }
+}

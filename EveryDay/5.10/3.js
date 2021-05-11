@@ -8,15 +8,18 @@
     \d === [0-9]
     \D === [^\d] 
     \s === [\r\n\t\v\f]
-    \r 回车 \n 换行 \t 制表 \v
+    \s === [^\s]
+    \r 回车 \n 换行 \t 制表 \v 垂直换行符 \f 换页符
 
     \b 单词边界
     \B 非\b
+    . 可以匹配回车换行以外的字符
 */ 
 // var str = "asaw121eqdqwe12";
 // var reg = /[1234567890][1234567890][1234567890]/g;
  
 // var reg = /[wx][xy][z]/g;
 // var str = "wxyz";
-var str = 'qwqeuq3Asd188u122u89-Jz2i';
-var reg = /[^0-9][A-Z][a-z]/g;
+var str = 'q\nq';
+var reg = /[\w\W]/g;
+console.log(str.match(reg));

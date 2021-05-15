@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment , useReducer} from 'react';
+import React, { useState, useEffect, Fragment, useReducer } from 'react';
 import axios from 'axios';
 
 const dataFetchReducer = (state, action) => {
@@ -22,28 +22,29 @@ const dataFetchReducer = (state, action) => {
         isLoading: false,
         isError: true
       }
-    
   }
 }
-const useDataApi = (initiaUrl,initialData) => {
-  const [url,setUrl] = useState(initiaUrl);
-  const [state,dispatch] = useReducer(dataFetchReducer,{
+
+const useDataApi = (initialUrl, initialData) => {
+  const [url, setUrl] = useState(initialUrl);
+  const [state, dispatch] = useReducer(dataFetchReducer, {
     isLoading: false,
     isError: false,
     data: initialData
   })
-  useEffect(()=>{
+  useEffect(() => {
     let didCancel = false;
-    const fetchData = async () =>{
-      dispatch({type:"FETCH_INIT"});
+    const fetchData = async () => {
+      dispatch({type: 'FETCH_INIT'});
+
       try {
         const result = await axios(url);
-        if(!didCancel){
-          dispatch({type:"FETH_SUCCESS",payload:result.data})
+        if (!didCancel) {
+          dispatch({type: 'FETCH_SUCCESS', payload: result.data})
         }
-      }catch(error) {
-        if(!didCancel){
-          dispatch({type:"FETH_FAILURE"})
+      } catch(error) {
+        if (!didCancel) {
+          dispatch({ type: 'FETCH_FAILURE' })
         }
       }
     }
@@ -51,15 +52,18 @@ const useDataApi = (initiaUrl,initialData) => {
     return () => {
       didCancel = true;
     }
-  },[url])
-  return [state,setUrl];
+  }, [url])
+
+  return [state, setUrl];
 }
+
 const App = () => {
-  const [{data,isLoading,isError},doFetch] = useDataApi(
-    `https://hn.algolia.com/api/v1/search?query=redux`,
+  const [query, setQuery] = useState('redux')
+  const [{data, isLoading, isError}, doFetch] = useDataApi(
+    'https://hn.algolia.com/api/v1/search?query=redux',
     {hits: []}
   )
-  const [query,setQuery] = useState("redux");
+
   return (
     <Fragment>
       <form
@@ -93,7 +97,7 @@ const App = () => {
         </ul>
       )}
     </Fragment>
-
   )
 }
+
 export default App;

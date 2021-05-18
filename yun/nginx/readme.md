@@ -15,7 +15,7 @@
      yum -y install gcc  gcc-c++ autoconf pcre-devel make automake
      yum -y install wget httpd-tools vim
      yum install nginx
-       nginx（启动服务器）
+     nginx（启动服务器）
      ps aux | grep nginx
      mkdir -p /data/www
 

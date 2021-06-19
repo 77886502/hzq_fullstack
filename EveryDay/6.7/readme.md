@@ -46,4 +46,8 @@ HttpOnly
     www.taobao.com 业务服务器 计算
     g.alicdn.com CDN服务器
 
+sideEffects
+webpack 不会吧lodash-es 所有的代码内容 打包进来， 只是带包了你用到的两个模块
+这是sideEffects
 
+useExports是通过Terser 来检测未使用的部分代码 是否有副作用

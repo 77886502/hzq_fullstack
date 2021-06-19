@@ -18,5 +18,16 @@ module.exports = {
     optimization:{
         minimize: true,
         useExports: true,
+        sideEffects: true,
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: 'initial',
+                    test: path.resolve(__dirname,'node_modules');
+                    name:'vendor',
+                    enforce:true
+                }
+            }
+        }
     }
 }
